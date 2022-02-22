@@ -11,3 +11,17 @@ header .header-avatar {
   float: right;
   width: 68px;
 }
+
+footer {
+  border-top: 1px dashed #b5e853;
+
+  & h2 a {
+    font-size: 18px;
+    font-weight: 300;
+    color: #666;
+
+    &:hover, &:focus, &:active {
+      color: #b5e853;
+    }
+  }
+}
