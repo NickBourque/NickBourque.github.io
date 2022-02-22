@@ -11,7 +11,7 @@ header .header-avatar {
   float: right;
   width: 68px;
   h2 {
-    text-shadow: none;
+    text-shadow: none !important;
   }
 }
 
@@ -25,7 +25,8 @@ footer {
     font-size: 18px;
     font-weight: 300;
     color: #666;
-    text-shadow: none;
+    text-shadow: none !important;
+    margin-top: 20px;
 
     & a {
       font-size: 18px;
