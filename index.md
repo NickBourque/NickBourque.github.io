@@ -8,9 +8,4 @@ Today, I lead a small engineering team for an international ed-tech company. Tog
 
 Currently, I'm responsible for the ongoing development and maintenance of an array of mission-critical software systems used to produce and deliver animated video content. From the content-planning stage, through the production of multilingual/multi-locale animations, voiceovers, and closed captioning, our content production pipeline utilizes a complex set of process-management and quality-control tools that are ever-evolving as we work toward increasing automation and scalability.
 
-<footer>
-<div class="container">
-<h2><a href="https://linkedin.com/in/nick-bourque">LinkedIn</a> | <a href="https://github.com/NickBourque">GitHub</a> | <a href="mailto:nickabourque@gmail.com">nickabourque@gmail.com</a> | <a href="tel:+19022295910">+1.902.229.5910</a></h2>
-</div>
-</footer>
 <script src="{{ site.baseurl }}{% link assets/js/app.js %}"></script>

@@ -13,15 +13,26 @@ header .header-avatar {
 }
 
 footer {
+  background: rgba(0,0,0,0.1);
+  width: 100%;
   border-top: 1px dashed #b5e853;
+  padding: 20px 0;
+  margin: 40px 0 0 0;
 
-  & h2 a {
+  & h2 {
     font-size: 18px;
     font-weight: 300;
     color: #666;
 
-    &:hover, &:focus, &:active {
-      color: #b5e853;
+    & a {
+      font-size: 18px;
+      font-weight: 300;
+      color: #666;
+      text-decoration: none;
+
+      &:hover, &:focus, &:active {
+        color: #b5e853;
+      }
     }
   }
 }
