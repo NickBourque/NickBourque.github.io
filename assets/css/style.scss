@@ -6,3 +6,12 @@
 #downloads {
   display: none;
 }
+
+header h1:before {
+  background-image: url('/favicon-32x32.png');
+  background-size: 32px 32px;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  content:"";
+}
