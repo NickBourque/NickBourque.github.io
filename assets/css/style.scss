@@ -10,6 +10,9 @@
 header .header-avatar {
   float: right;
   width: 68px;
+  h2 {
+    text-shadow: none;
+  }
 }
 
 footer {
@@ -22,6 +25,7 @@ footer {
     font-size: 18px;
     font-weight: 300;
     color: #666;
+    text-shadow: none;
 
     & a {
       font-size: 18px;
