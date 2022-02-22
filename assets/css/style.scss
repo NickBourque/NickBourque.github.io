@@ -3,6 +3,10 @@
 
 @import "{{ site.theme }}";
 
+h2 {
+  text-shadow: none !important;
+}
+
 #downloads {
   display: none;
 }
@@ -33,6 +37,7 @@ footer {
       font-weight: 300;
       color: #666;
       text-decoration: none;
+      text-shadow: none !important;
 
       &:hover, &:focus, &:active {
         color: #b5e853;
