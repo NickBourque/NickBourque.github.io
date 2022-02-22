@@ -1,4 +1,9 @@
 
 window.onload = e => {
-    document.querySelector('header .container').append('<img class="header-avatar" src="../img/nick-head.png" alt="Nick Bourque" />')
+    let avatar = document.createElement('img')
+    avatar.className = 'header-avatar'
+    avatar.src = '../img/nick-head.png'
+    avatar.alt = 'Nick Bourque'
+
+    document.querySelector('header .container').append(avatar)
 }
