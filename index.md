@@ -1,4 +1,4 @@
-## Greetings! :wave:
+## Greetings! 👋
 
 ### I’m Nick – a Senior Software Engineer based in Halifax, Nova Scotia.
 
