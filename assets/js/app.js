@@ -5,5 +5,5 @@ window.onload = e => {
     avatar.src = 'assets/img/nick-head.png'
     avatar.alt = 'Nick Bourque'
 
-    document.querySelector('header .container').append(avatar)
+    document.querySelector('header .container').prepend(avatar)
 }
