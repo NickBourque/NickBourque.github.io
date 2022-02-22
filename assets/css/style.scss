@@ -7,12 +7,9 @@
   display: none;
 }
 
-//header h1:before {
-//  background-image: url('/favicon-32x32.png');
-//  background-size: 32px 32px;
-//  display: inline-block;
-//  width: 32px;
-//  height: 32px;
-//  content:"";
-//  margin-right: 0.5rem;
-//}
+header .header-avatar {
+  position: absolute;
+  right: 30px;
+  top: 26px;
+  width: 68px;
+}
