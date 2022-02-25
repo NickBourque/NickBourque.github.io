@@ -3,6 +3,8 @@
 
 @import "{{ site.theme }}";
 
+$color-primary: #b5e853;
+
 h2 {
   text-shadow: none !important;
 }
@@ -16,20 +18,53 @@ header .header-avatar {
   width: 94px;
 }
 
-@keyframes cursor-blink {
-  0% {
-    opacity: 0;
+@keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: $color-primary;
+  }
+}
+
+@-moz-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: $color-primary;
+  }
+}
+
+@-webkit-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: $color-primary;
+  }
+}
+
+@-o-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: $color-primary;
   }
 }
 
 header h1:after {
-  content: "|";
-  animation: cursor-blink 1.5s steps(2) infinite;
+  content: " |";
+  -webkit-animation: 1.5s blink step-end infinite;
+  -moz-animation: 1.5s blink step-end infinite;
+  -o-animation: 1.5s blink step-end infinite;
+  animation: 1.5s blink step-end infinite;
 }
 
 footer {
   width: 100%;
-  border-top: 1px dashed #b5e853;
+  border-top: 1px dashed $color-primary;
   padding: 20px 0;
   margin: 40px 0 0 0;
 
@@ -48,7 +83,7 @@ footer {
       text-shadow: none !important;
 
       &:hover, &:focus, &:active {
-        color: #b5e853;
+        color: $color-primary;
       }
     }
   }
