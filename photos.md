@@ -1,5 +1,5 @@
 <script src="https://cdn.jsdelivr.net/npm/publicalbum@latest/embed-ui.min.js" async></script>
-<div class="pa-carousel-widget" style="width:100%; height:480px; display:none;"
+<div class="pa-carousel-widget" style="width:100%; height:960px; display:none;"
   data-link="https://photos.app.goo.gl/qHLiY4bs5dYTLDr57"
   data-title="Photography"
   data-description="9 new items added to shared album"
