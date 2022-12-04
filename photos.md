@@ -90,3 +90,5 @@
   <object data="https://lh3.googleusercontent.com/WujKamTIM4b7anD55wnfV1C3zmk2kg4xlXmOoJr5IHNkoFhpaZciYgmveizgr3U1smy3Pnt0knizWQUY8hmHEitdqsB14SzxBYvLORnOesTj0PaStbTn8HRB2lOHLFdDKpab0HTO3tw=w1920-h1080"></object>
   <object data="https://lh3.googleusercontent.com/RwARLX6F86wqmMDNqV3jvvNsK4t251S2zIhwkcPrKzdHOyAW9dsOUworRcNTMuPr6wTpGYPhUbztsxnLVg8KKcPiFSben5rLsCjnHA49l0sc3oJRiL_uq6MWN2oxjkoyFM3V83Q99gg=w1920-h1080"></object>
 </div>
+
+<script src="{{ site.baseurl }}{% link assets/js/app.js %}"></script>
