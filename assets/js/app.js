@@ -11,7 +11,7 @@ window.onload = e => {
     let footer = document.createElement('footer')
     let container = document.createElement('div')
     let h2 = document.createElement('h2')
-    h2.innerHTML = '<a href="/">Home</a> | <a href="/photos">Photos</a> | <a href="https://linkedin.com/in/nick-bourque" target="_blank">LinkedIn</a> | <a href="https://github.com/NickBourque" target="_blank">GitHub</a>'
+    h2.innerHTML = '<a href="/">Home</a> | <a href="https://linkedin.com/in/nick-bourque" target="_blank">LinkedIn</a> | <a href="https://github.com/NickBourque" target="_blank">GitHub</a>'
     container.className = 'container'
     container.append(h2)
     footer.append(container)
