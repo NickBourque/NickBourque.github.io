@@ -2,7 +2,7 @@
 window.onload = e => {
     let avatar = document.createElement('img')
     avatar.className = 'header-avatar'
-    avatar.src = 'assets/img/nick-head.png'
+    avatar.src = 'assets/img/nick-bourque.png'
     avatar.alt = 'Nick Bourque'
 
     document.querySelector('header .container').prepend(avatar)
