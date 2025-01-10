@@ -1,10 +1,13 @@
 ### About Me
 
-Hi, I’m Nick – a Software Engineer based in Halifax, Nova Scotia. After graduating from Nova Scotia Community College in 2017 and beginning my career at a budding startup, I quickly became the lead developer on a SaaS platform that has gone on to reach tens of thousands of users. Working primarily on a LAMP stack, I spent my first three working years honing my skills in software architecture, PHP, database design, procedural SQL, and JavaScript, to become the developer I am now.
+I'm Nick, a Software Engineer based in Halifax, Nova Scotia, passionate about building innovative and impactful software solutions. 
 
-In my recent experience, I've lead a small engineering team for an international ed-tech company where I was responsible for the ongoing development and maintenance of an array of mission-critical software systems used to produce and deliver animated video content, bringing online learning to the homes and classrooms of students around the world. From the content-planning stage, through the production of multilingual/multi-locale animations, voiceovers, and closed captioning, the content production pipeline I helped develop utilizes a complex set of process-management and quality-control tools that were ever-evolving as we worked toward increasing automation and scalability.
+My journey began in 2017 after graduating from Nova Scotia Community College. I quickly found myself leading the development of a SaaS platform at a dynamic startup, where I honed my skills in software architecture, PHP, SQL, and JavaScript, contributing to a product that reached tens of thousands of users.
 
-Currently, I'm working with a great team in the XR space to develop a product that enables companies large and small to remotely manage AR & VR devices, deploy content, and control what users can see and do in the headset. I'm thrilled to be working with such an incredible team on a product that has the potential to change the way companies in every industry deliver training material to their employees.
+Driven by a desire to expand my horizons, I transitioned to an international ed-tech company. There, I once again began as an individual contributor and worked my way up to a lead role, where I led a talented engineering team responsible for the development and maintenance of systems that powered the creation and delivery of animated educational content. This experience deepened my understanding of process management, quality control, and the importance of automation and scalability.
 
+Currently, I'm collaborating with an exceptional team in the exciting world of XR. We're developing a cutting-edge product that empowers businesses of all sizes to seamlessly manage AR/VR devices, deploy content, and curate user experiences. I'm incredibly enthusiastic about the potential of this technology to revolutionize training and education across industries.
+
+Throughout my career, I've consistently sought opportunities to learn, grow, and contribute to projects that make a difference. I'm eager to connect and explore new possibilities in the ever-evolving tech landscape.
 
 <script src="{{ site.baseurl }}{% link assets/js/app.js %}"></script>
