@@ -1,0 +1,90 @@
+---
+layout: page
+title: "Engineering Blog"
+subtitle: "Technical articles, architectural case studies, and reflections on engineering management and scale."
+url: /blog/
+---
+
+<div class="blog-index-layout">
+  <div class="blog-feed-list">
+    {% if site.posts.size > 0 %}
+      {% for post in site.posts %}
+        {% assign words = post.content | number_of_words %}
+        {% assign read_time = words | divided_by: 200 | plus: 1 %}
+        
+        <article class="blog-feed-card">
+          <div class="blog-feed-card-header">
+            <time datetime="{{ post.date | date_to_xmlschema }}" class="blog-feed-date">
+              <i data-lucide="calendar"></i> {{ post.date | date: "%B %d, %Y" }}
+            </time>
+            <span class="meta-separator">&bull;</span>
+            <span class="blog-feed-readtime">
+              <i data-lucide="clock"></i> {{ read_time }} min read
+            </span>
+          </div>
+
+          <h2 class="blog-feed-title">
+            <a href="{{ site.baseurl }}{{ post.url }}" id="blog-title-{{ post.title | slugify }}">{{ post.title }}</a>
+          </h2>
+          
+          <p class="blog-feed-excerpt">
+            {{ post.excerpt | strip_html | truncatewords: 40 }}
+          </p>
+
+          <div class="blog-feed-footer">
+            <div class="blog-feed-tags">
+              {% for tag in post.tags %}
+                <span class="blog-tag">#{{ tag }}</span>
+              {% endfor %}
+            </div>
+            <a href="{{ site.baseurl }}{{ post.url }}" class="blog-feed-link" id="blog-link-{{ post.title | slugify }}">
+              Read Full Article <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+        </article>
+      {% endfor %}
+    {% else %}
+      <div class="no-posts-card text-center">
+        <i data-lucide="book-open" class="empty-blog-icon"></i>
+        <h3>No Articles Yet</h3>
+        <p>We are currently drafting some insights. Check back very soon!</p>
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Sidebar Widget -->
+  <aside class="blog-sidebar">
+    <div class="blog-sidebar-widget">
+      <h3>About the Author</h3>
+      <div class="sidebar-author-header">
+        <img src="{{ site.baseurl }}/assets/img/nick-bourque.png" alt="Nick Bourque" class="sidebar-author-img">
+        <div>
+          <h4>Nick Bourque</h4>
+          <p>Halifax, NS 🇨🇦</p>
+        </div>
+      </div>
+      <p class="sidebar-author-bio">
+        Nick is a Software Engineer specializing in scaled backend systems, interactive web platforms, and XR management.
+      </p>
+      <div class="sidebar-socials">
+        <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i data-lucide="linkedin"></i>
+        </a>
+        <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" aria-label="GitHub">
+          <i data-lucide="github"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="blog-sidebar-widget">
+      <h3>Filter by Topics</h3>
+      <div class="sidebar-topics-cloud">
+        <span class="topic-tag">#Scaling</span>
+        <span class="topic-tag">#EdTech</span>
+        <span class="topic-tag">#XR</span>
+        <span class="topic-tag">#EngineeringLead</span>
+        <span class="topic-tag">#Database</span>
+      </div>
+    </div>
+  </aside>
+</div>

@@ -1,0 +1,39 @@
+- title: "AetherXR Manager"
+  category: "XR"
+  role: "Lead Architect / Developer"
+  tech_stack: ["C++", "WebRTC", "Node.js", "WebGL", "Docker"]
+  description: "An enterprise-grade platform enabling businesses to manage thousands of AR/VR headsets, provision profiles, deploy immersive content remotely, and monitor device telemetry in real-time."
+  icon: "device-vr"
+  github_url: "https://github.com/NickBourque/aetherxr-manager"
+  demo_url: "https://github.com/NickBourque/aetherxr-manager"
+  featured: true
+
+- title: "EduCanvas Engine"
+  category: "EdTech"
+  role: "Engineering Lead"
+  tech_stack: ["JavaScript", "PHP", "FFmpeg", "AWS S3", "Redis"]
+  description: "A high-throughput rendering and delivery pipeline designed for educational animation content. Streamlines assets from creation to instant cross-platform CDN distribution, serving millions of learners."
+  icon: "movie"
+  github_url: "https://github.com/NickBourque/educanvas-engine"
+  demo_url: "https://github.com/NickBourque/educanvas-engine"
+  featured: true
+
+- title: "ApexSaaS Analytics"
+  category: "SaaS"
+  role: "Lead Engineer"
+  tech_stack: ["PHP (Laravel)", "MySQL", "Vue.js", "REST APIs"]
+  description: "Designed and scaled a B2B SaaS platform from absolute zero to 50k+ active users. Managed database optimizations, modular code design, and secure payment integrations."
+  icon: "chart-bar"
+  github_url: "https://github.com/NickBourque/apexsaas"
+  demo_url: "https://github.com/NickBourque/apexsaas"
+  featured: true
+
+- title: "Chronos Tasker"
+  category: "OpenSource"
+  role: "Creator"
+  tech_stack: ["TypeScript", "CSS", "HTML5", "LocalStorage"]
+  description: "A sleek, keyboard-centric productivity app utilizing glassmorphic layout principles, offline synchronization, and customizable pomodoro triggers."
+  icon: "clock"
+  github_url: "https://github.com/NickBourque/chronos-tasker"
+  demo_url: "https://github.com/NickBourque/chronos-tasker"
+  featured: false

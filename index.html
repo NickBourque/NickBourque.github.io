@@ -1,0 +1,207 @@
+---
+layout: default
+url: /
+---
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <div class="badge hero-badge">Available for opportunities</div>
+      <h1 class="hero-title">
+        Building Software that <span class="gradient-text">Solves Problems</span> & <span class="gradient-text">Scales</span> to Meet Them
+      </h1>
+      <p class="hero-subtitle">
+        Hi, I'm <strong>Nick Bourque</strong>, a Software Engineer based in Halifax, Nova Scotia. I specialize in enterprise SaaS development, high-throughput delivery architecture, and spatial computing/XR device management platforms.
+      </p>
+      <div class="hero-ctas">
+        <a href="{{ site.baseurl }}/portfolio/" class="cta-btn primary-btn" id="hero-cta-portfolio">
+          View My Work <i data-lucide="arrow-right"></i>
+        </a>
+        <a href="{{ site.baseurl }}/about/" class="cta-btn secondary-btn" id="hero-cta-about">
+          More About Me
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="profile-card-wrapper">
+        <div class="profile-card">
+          <img src="{{ site.baseurl }}/assets/img/nick-bourque.png" alt="Nick Bourque" class="hero-avatar">
+          <div class="profile-badge">
+            <span class="pulse-dot"></span>
+            <span>Coding in Halifax</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick About Teaser -->
+<section class="about-teaser-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">My Journey At a Glance</h2>
+      <p class="section-subtitle">A brief overview of my professional timeline</p>
+    </div>
+    <div class="about-teaser-grid">
+      <div class="teaser-card">
+        <div class="teaser-icon-box primary-glow"><i data-lucide="rocket"></i></div>
+        <h3>SaaS Pioneer</h3>
+        <p>Led development of a B2B SaaS platform from the ground up, scaling to serve tens of thousands of active users early in my career.</p>
+      </div>
+      <div class="teaser-card">
+        <div class="teaser-icon-box secondary-glow"><i data-lucide="users"></i></div>
+        <h3>Engineering Lead</h3>
+        <p>Directed the engineering team behind animated educational content pipelines at an international ed-tech company, streamlining content creation through CDN delivery.</p>
+      </div>
+      <div class="teaser-card">
+        <div class="teaser-icon-box accent-glow"><i data-lucide="device-vr"></i></div>
+        <h3>XR Innovator</h3>
+        <p>Currently engineering device management platforms in the spatial computing sector to deploy immersive apps and configure enterprise headsets.</p>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="{{ site.baseurl }}/about/" class="text-link" id="teaser-about-link">
+        Read the full story & timeline <i data-lucide="arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Technical Skills Grid -->
+<section class="skills-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Core Competencies</h2>
+      <p class="section-subtitle">The tools and methodologies I use to build scalable products</p>
+    </div>
+    <div class="skills-grid">
+      {% for group in site.data.skills %}
+      <div class="skills-card">
+        <div class="skills-card-header">
+          <i data-lucide="{{ group.icon }}" class="skills-group-icon"></i>
+          <h3>{{ group.group }}</h3>
+        </div>
+        <ul class="skills-list">
+          {% for skill in group.skills %}
+          <li class="skill-item-row">
+            <span class="skill-name">{{ skill.name }}</span>
+            <div class="skill-progress-wrapper" title="{{ skill.level }}%">
+              <div class="skill-progress-bar" style="width: {{ skill.level }}%"></div>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Featured Projects Section -->
+<section class="featured-projects-section">
+  <div class="container">
+    <div class="section-header-split">
+      <div class="section-header-left">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">A selection of recent systems I've designed and built</p>
+      </div>
+      <a href="{{ site.baseurl }}/portfolio/" class="cta-btn secondary-btn" id="featured-projects-view-all">
+        View All Projects
+      </a>
+    </div>
+
+    <div class="projects-grid">
+      {% assign featured_projects = site.data.projects | where: "featured", true %}
+      {% for project in featured_projects %}
+      <div class="project-card">
+        <div class="project-card-badge">{{ project.category }}</div>
+        <div class="project-card-content">
+          <h3>{{ project.title }}</h3>
+          <p class="project-role">{{ project.role }}</p>
+          <p class="project-desc">{{ project.description }}</p>
+          <div class="project-tags-list">
+            {% for tech in project.tech_stack %}
+            <span class="tech-tag">{{ tech }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="project-card-actions">
+          <a href="{{ project.github_url }}" target="_blank" rel="noopener" class="project-action-link" id="project-github-{{ project.title | slugify }}">
+            <i data-lucide="github"></i> Code
+          </a>
+          <a href="{{ project.demo_url }}" target="_blank" rel="noopener" class="project-action-link" id="project-demo-{{ project.title | slugify }}">
+            <i data-lucide="external-link"></i> Live Demo
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Latest Blog Posts -->
+<section class="latest-blog-section">
+  <div class="container">
+    <div class="section-header-split">
+      <div class="section-header-left">
+        <h2 class="section-title">Latest Writing</h2>
+        <p class="section-subtitle">Thoughts on engineering leadership, software scale, and XR</p>
+      </div>
+      <a href="{{ site.baseurl }}/blog/" class="cta-btn secondary-btn" id="latest-blog-view-all">
+        Go to Blog
+      </a>
+    </div>
+
+    <div class="blog-posts-grid">
+      {% for post in site.posts limit:2 %}
+      {% assign words = post.content | number_of_words %}
+      {% assign read_time = words | divided_by: 200 | plus: 1 %}
+      <article class="blog-post-card">
+        <div class="blog-card-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%b %d, %Y" }}
+          </time>
+          <span class="meta-dot">&bull;</span>
+          <span>{{ read_time }} min read</span>
+        </div>
+        <h3 class="blog-card-title">
+          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+        </h3>
+        <p class="blog-card-excerpt">
+          {{ post.excerpt | strip_html | truncatewords: 25 }}
+        </p>
+        <div class="blog-card-tags">
+          {% for tag in post.tags limit:3 %}
+          <span class="blog-tag">#{{ tag }}</span>
+          {% endfor %}
+        </div>
+        <a href="{{ site.baseurl }}{{ post.url }}" class="blog-card-link" id="latest-blog-read-{{ post.title | slugify }}">
+          Read Article <i data-lucide="arrow-right"></i>
+        </a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="contact-cta-section">
+  <div class="container">
+    <div class="contact-card">
+      <div class="contact-card-content">
+        <h2>Let's Collaborate</h2>
+        <p>Whether you're looking to discuss scalable web architectures, XR platform operations, or engineering team management, I'm always open to connecting.</p>
+        <div class="contact-actions">
+          <a href="mailto:{{ site.email }}" class="cta-btn primary-btn" id="contact-action-email">
+            <i data-lucide="mail"></i> Send an Email
+          </a>
+          <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" class="cta-btn secondary-btn" id="contact-action-linkedin">
+            <i data-lucide="linkedin"></i> Connect on LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

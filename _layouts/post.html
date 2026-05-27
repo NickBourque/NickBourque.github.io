@@ -1,0 +1,81 @@
+---
+layout: default
+---
+{% assign words = content | number_of_words %}
+{% assign read_time = words | divided_by: 200 | plus: 1 %}
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress-container" aria-hidden="true">
+  <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
+</div>
+
+<article class="blog-post-article">
+  <header class="post-article-header">
+    <div class="container small-container">
+      <a href="{{ site.baseurl }}/blog/" class="back-link">
+        <i data-lucide="arrow-left"></i> Back to Blog
+      </a>
+      
+      <h1 class="post-article-title">{{ page.title }}</h1>
+      
+      <div class="post-meta-details">
+        <div class="author-info">
+          <img src="{{ site.baseurl }}/assets/img/nick-bourque.png" alt="Nick Bourque" class="author-avatar-small">
+          <span>Nick Bourque</span>
+        </div>
+        <span class="meta-separator">&bull;</span>
+        <time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">
+          <i data-lucide="calendar"></i> {{ page.date | date: "%B %d, %Y" }}
+        </time>
+        <span class="meta-separator">&bull;</span>
+        <span class="post-read-time">
+          <i data-lucide="clock"></i> {{ read_time }} min read
+        </span>
+      </div>
+
+      <div class="post-tags">
+        {% for tag in page.tags %}
+          <span class="post-tag">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+      <div class="header-divider"></div>
+    </div>
+  </header>
+
+  <section class="post-article-content">
+    <div class="container small-container markdown-body">
+      {{ content }}
+    </div>
+  </section>
+
+  <footer class="post-article-footer">
+    <div class="container small-container">
+      <div class="footer-author-card">
+        <img src="{{ site.baseurl }}/assets/img/nick-bourque.png" alt="Nick Bourque" class="author-avatar-large">
+        <div class="author-details">
+          <h3>Written by Nick Bourque</h3>
+          <p>Nick is a Software Engineer based in Halifax, Nova Scotia. He focuses on scalable web platforms, high-throughput delivery architecture, and interactive XR devices management.</p>
+          <div class="author-socials">
+            <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="post-navigation">
+        {% if page.previous.url %}
+        <a href="{{ site.baseurl }}{{ page.previous.url }}" class="post-nav-prev">
+          <span class="nav-label">Previous Post</span>
+          <span class="nav-title">{{ page.previous.title }}</span>
+        </a>
+        {% endif %}
+        {% if page.next.url %}
+        <a href="{{ site.baseurl }}{{ page.next.url }}" class="post-nav-next">
+          <span class="nav-label">Next Post</span>
+          <span class="nav-title">{{ page.next.title }}</span>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </footer>
+</article>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+
+  <!-- SEO & Social Meta Tags -->
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+</head>
+<body class="dark-mode">
+
+  <!-- Decorative glow backdrops -->
+  <div class="glow-bg glow-primary"></div>
+  <div class="glow-bg glow-secondary"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="{{ site.baseurl }}/" class="logo" id="nav-logo">
+        <span class="logo-accent">&lt;</span>NickB<span class="logo-accent">/&gt;</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav" aria-label="Desktop navigation">
+        <a href="{{ site.baseurl }}/" class="nav-link {% if page.url == '/' %}active{% endif %}" id="nav-home">Home</a>
+        <a href="{{ site.baseurl }}/about/" class="nav-link {% if page.url contains '/about/' %}active{% endif %}" id="nav-about">About</a>
+        <a href="{{ site.baseurl }}/portfolio/" class="nav-link {% if page.url contains '/portfolio/' %}active{% endif %}" id="nav-portfolio">Portfolio</a>
+        <a href="{{ site.baseurl }}/blog/" class="nav-link {% if page.url contains '/blog/' %}active{% endif %}" id="nav-blog">Blog</a>
+        <a href="mailto:{{ site.email }}" class="cta-btn small-btn" id="nav-contact-cta">Contact</a>
+      </nav>
+
+      <!-- Theme & Mobile Menu Trigger -->
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle dark/light mode">
+          <i data-lucide="sun" class="sun-icon"></i>
+          <i data-lucide="moon" class="moon-icon"></i>
+        </button>
+        <button id="menu-toggle" class="menu-toggle-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+          <i data-lucide="menu" class="menu-icon"></i>
+          <i data-lucide="x" class="close-icon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-menu" class="mobile-menu-drawer" aria-hidden="true">
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="{{ site.baseurl }}/" class="mobile-nav-link {% if page.url == '/' %}active{% endif %}" id="mobile-nav-home">Home</a>
+      <a href="{{ site.baseurl }}/about/" class="mobile-nav-link {% if page.url contains '/about/' %}active{% endif %}" id="mobile-nav-about">About</a>
+      <a href="{{ site.baseurl }}/portfolio/" class="mobile-nav-link {% if page.url contains '/portfolio/' %}active{% endif %}" id="mobile-nav-portfolio">Portfolio</a>
+      <a href="{{ site.baseurl }}/blog/" class="mobile-nav-link {% if page.url contains '/blog/' %}active{% endif %}" id="mobile-nav-blog">Blog</a>
+      <a href="mailto:{{ site.email }}" class="cta-btn text-center" id="mobile-nav-contact">Get in Touch</a>
+    </nav>
+  </div>
+
+  <!-- Main Content Wrapper -->
+  <main class="main-content" id="main-content">
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-info">
+        <a href="{{ site.baseurl }}/" class="logo">
+          <span class="logo-accent">&lt;</span>NickB<span class="logo-accent">/&gt;</span>
+        </a>
+        <p class="footer-desc">{{ site.description }}</p>
+      </div>
+
+      <div class="footer-links">
+        <h4 class="footer-heading">Navigation</h4>
+        <ul>
+          <li><a href="{{ site.baseurl }}/" id="footer-link-home">Home</a></li>
+          <li><a href="{{ site.baseurl }}/about/" id="footer-link-about">About</a></li>
+          <li><a href="{{ site.baseurl }}/portfolio/" id="footer-link-portfolio">Portfolio</a></li>
+          <li><a href="{{ site.baseurl }}/blog/" id="footer-link-blog">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4 class="footer-heading">Connect</h4>
+        <div class="social-icons">
+          {% if site.linkedin_username %}
+          <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" aria-label="LinkedIn" id="footer-social-linkedin">
+            <i data-lucide="linkedin"></i>
+          </a>
+          {% endif %}
+          {% if site.github_username %}
+          <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" aria-label="GitHub" id="footer-social-github">
+            <i data-lucide="github"></i>
+          </a>
+          {% endif %}
+          {% if site.gitlab_username %}
+          <a href="https://gitlab.com/{{ site.gitlab_username }}" target="_blank" rel="noopener" aria-label="GitLab" id="footer-social-gitlab">
+            <i data-lucide="gitlab"></i>
+          </a>
+          {% endif %}
+        </div>
+        <p class="footer-email">Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ site.time | date: '%Y' }} Nick Bourque. All rights reserved. Built with Jekyll.</p>
+    </div>
+  </footer>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom Application Script -->
+  <script src="{{ site.baseurl }}/assets/js/app.js"></script>
+</body>
+</html>

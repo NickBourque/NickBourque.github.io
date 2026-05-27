@@ -1,0 +1,76 @@
+---
+layout: page
+title: "Project Portfolio"
+subtitle: "A showcase of engineering achievements, architectural designs, and open-source contributions."
+url: /portfolio/
+---
+
+<!-- Category Filter Controls -->
+<div class="portfolio-filters-container">
+  <button class="filter-btn active" data-filter="all">All Projects</button>
+  <button class="filter-btn" data-filter="SaaS">SaaS & Web</button>
+  <button class="filter-btn" data-filter="XR">XR & VR</button>
+  <button class="filter-btn" data-filter="EdTech">EdTech & Platforms</button>
+  <button class="filter-btn" data-filter="OpenSource">Open Source</button>
+</div>
+
+<!-- Portfolio Grid -->
+<div class="projects-grid portfolio-full-grid">
+  {% for project in site.data.projects %}
+  <div class="project-card" data-category="{{ project.category }}">
+    <div class="project-card-badge">{{ project.category }}</div>
+    <div class="project-card-content">
+      <div class="project-header-row">
+        <div class="project-icon-box">
+          {% if project.icon == "device-vr" %}
+            <i data-lucide="device-vr"></i>
+          {% elsif project.icon == "movie" %}
+            <i data-lucide="film"></i>
+          {% elsif project.icon == "chart-bar" %}
+            <i data-lucide="bar-chart-3"></i>
+          {% else %}
+            <i data-lucide="github"></i>
+          {% endif %}
+        </div>
+        <div>
+          <h3>{{ project.title }}</h3>
+          <p class="project-role">{{ project.role }}</p>
+        </div>
+      </div>
+      
+      <p class="project-desc">{{ project.description }}</p>
+      
+      <div class="project-tags-list">
+        {% for tech in project.tech_stack %}
+        <span class="tech-tag">{{ tech }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <div class="project-card-actions">
+      <a href="{{ project.github_url }}" target="_blank" rel="noopener" class="project-action-link" id="portfolio-github-{{ project.title | slugify }}">
+        <i data-lucide="github"></i> Repository
+      </a>
+      <a href="{{ project.demo_url }}" target="_blank" rel="noopener" class="project-action-link" id="portfolio-demo-{{ project.title | slugify }}">
+        <i data-lucide="external-link"></i> Live Demo
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- Extra Contributions Callout -->
+<section class="contributions-callout">
+  <div class="contributions-card">
+    <div class="callout-icon-box">
+      <i data-lucide="git-pull-request"></i>
+    </div>
+    <div class="callout-content">
+      <h3>Other Contributions & Technologies</h3>
+      <p>I frequently contribute to internal tooling, automated CLI utilities, and custom integration scripts. My expertise extends across infrastructure setup (Docker, CI/CD pipelines, CDN routing) and database performance tuning (profiling queries, setting up caching policies, indexing).</p>
+      <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" class="text-link" id="portfolio-github-profile">
+        View My GitHub Profile <i data-lucide="arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
