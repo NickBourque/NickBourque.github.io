@@ -12,7 +12,7 @@ url: /about/
       I believe that software should be built with clear intent, architectural resilience, and a deep focus on solving real-world business challenges. Throughout my career, I've enjoyed taking ownership of complex systems, optimizing them for high performance, and scaling them as user demand grows.
     </p>
     <p>
-      Whether managing SaaS databases serving tens of thousands of requests, leading content pipelines for millions of students globally, or configuring XR devices in dynamic enterprise environments, I approach every engineering challenge with pragmatism, robust design patterns, and an open mind for learning.
+      Whether designing public APIs that serve enterprise-scale traffic, building backends for globally localized educational content, or architecting device-management systems for enterprise XR deployments, I approach every engineering challenge with pragmatism, robust design patterns, and an open mind for learning.
     </p>
     
     <div class="values-section">
@@ -42,9 +42,9 @@ url: /about/
       <h3>Quick Details</h3>
       <ul class="details-list">
         <li><strong>Location:</strong> Halifax, NS, Canada 🇨🇦</li>
-        <li><strong>Education:</strong> NSCC (Information Technology)</li>
-        <li><strong>Core Tech:</strong> PHP, SQL, JavaScript, C++, Docker</li>
-        <li><strong>Focus Areas:</strong> SaaS, EdTech, XR & Device Mgmt</li>
+        <li><strong>Education:</strong> NSCC — Data Application Development</li>
+        <li><strong>Core Tech:</strong> PHP, SQL, TypeScript, Docker</li>
+        <li><strong>Focus Areas:</strong> SaaS, EdTech, XR & Device Management, Health</li>
       </ul>
       <div class="sidebar-actions">
         <a href="mailto:{{ site.email }}" class="cta-btn small-btn full-width text-center" id="about-sidebar-contact">
@@ -68,17 +68,18 @@ url: /about/
     <!-- Milestone 1 -->
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">2023 - Present</div>
+      <div class="timeline-date">2022 - Present</div>
       <div class="timeline-content">
-        <h3>Software Engineer — XR & Device Operations</h3>
-        <p class="timeline-company">Spatial Computing Platform</p>
+        <h3>Senior Software Engineer</h3>
+        <p class="timeline-company">ArborXR</p>
         <p>
-          Currently engineering in the XR space, developing a robust enterprise-grade system that enables businesses to manage AR/VR hardware devices dynamically.
+          Engineering in the enterprise XR space, building and re-architecting the mobile device management (MDM) platform that lets businesses deploy and manage AR/VR hardware at scale.
         </p>
         <ul>
-          <li>Designing pipelines for remote profile configuration and application deployment on XR headsets.</li>
-          <li>Optimizing device telemetry tracking and real-time synchronization between edge devices and cloud dashboards.</li>
-          <li>Collaborating with hardware manufacturers and client operations teams to ensure seamless hardware management.</li>
+          <li>Re-architected and rebuilt the core XR MDM backend and frontend, improving performance and scalability under growing user loads.</li>
+          <li>Primary architect and owner of the public REST API (v2/v3), designing enterprise-critical endpoints with user-scoped tokens and role-based access control (RBAC).</li>
+          <li>Built the enterprise-grade audit log system from the ground up for compliance traceability, and engineered a differential patching system that cut deployment bandwidth and sped up content delivery to devices.</li>
+          <li>Developed and maintained the authentication & SSO layer (OAuth2/SAML) with internal impersonation and session management, using PHP (Laravel), SQL, and MQTT for high-volume, real-time synchronization.</li>
         </ul>
       </div>
     </div>
@@ -86,17 +87,17 @@ url: /about/
     <!-- Milestone 2 -->
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">2020 - 2023</div>
+      <div class="timeline-date">2020 - 2022</div>
       <div class="timeline-content">
-        <h3>Engineering Lead / Senior Developer</h3>
-        <p class="timeline-company">International Ed-Tech Enterprise</p>
+        <h3>Senior Software Engineer</h3>
+        <p class="timeline-company">Binogi Studios</p>
         <p>
-          Progressed from individual contributor to engineering lead, managing a multi-disciplinary team responsible for core content pipelines.
+          Built and maintained scalable backend systems powering the production of translated and localized animated educational content.
         </p>
         <ul>
-          <li>Led the architectural design and operations of animation rendering, storage, and cross-platform delivery systems.</li>
-          <li>Scaled systems to serve educational animated content to millions of students and educators across the globe.</li>
-          <li>Introduced rigorous automated testing standards, CI/CD improvements, and mentored engineers during core design revamps.</li>
+          <li>Developed backend systems supporting localized educational content delivered across dozens of international markets.</li>
+          <li>Researched and experimented with new technologies to improve content-delivery efficiency.</li>
+          <li>Contributed to platform architecture and design discussions for core features.</li>
         </ul>
       </div>
     </div>
@@ -106,15 +107,15 @@ url: /about/
       <div class="timeline-dot"></div>
       <div class="timeline-date">2017 - 2020</div>
       <div class="timeline-content">
-        <h3>Lead Software Engineer</h3>
-        <p class="timeline-company">SaaS Startup Platform</p>
+        <h3>Lead Developer</h3>
+        <p class="timeline-company">Guild Software</p>
         <p>
-          Took full ownership of a core SaaS product shortly after graduation, leading its development from initial prototype to production deployment.
+          Joined shortly after graduation and led development of web-based platforms for professional colleges and associations.
         </p>
         <ul>
-          <li>Engineered backend logic using PHP and MySQL, and implemented dynamic client-side interactions in JavaScript.</li>
-          <li>Optimized relational database schemas, query indexes, and server configurations to accommodate growth to tens of thousands of active users.</li>
-          <li>Handled integrations with external SaaS APIs, payment gateways, and client SSO setups.</li>
+          <li>Led development of membership, licensure, online payment, and government-reporting systems used by professional associations managing tens of thousands of members.</li>
+          <li>Executed large-scale legacy data migrations, preserving data integrity and minimizing downtime during client transitions.</li>
+          <li>Oversaw and mentored junior developers while managing project timelines and on-time delivery.</li>
         </ul>
       </div>
     </div>
@@ -122,13 +123,16 @@ url: /about/
     <!-- Milestone 4 -->
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">2017</div>
+      <div class="timeline-date">2015 - 2017</div>
       <div class="timeline-content">
         <h3>Academic Foundation</h3>
         <p class="timeline-company">Nova Scotia Community College (NSCC)</p>
         <p>
-          Graduated with a concentration in software development, building a deep understanding of object-oriented principles, database normalization, and web technologies.
+          Completed Data Application Development with a concentration in data-solutions development and object-oriented programming, plus training in business and data analysis, mobile development, and technical documentation.
         </p>
+        <ul>
+          <li>Received the Data Application Programming Award from the NSCC IT Campus faculty, recognizing attitude, aptitude, and accomplishment.</li>
+        </ul>
       </div>
     </div>
 
