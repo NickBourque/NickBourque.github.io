@@ -18,3 +18,18 @@ permalink: /blog/:title/
 # Sass compilation settings
 sass:
   style: compressed
+
+# Temporarily disabled sections — excluded from the build so they are inaccessible.
+# Remove these entries (and re-enable the commented nav/home blocks in
+# _layouts/default.html and index.html) to bring them back.
+exclude:
+  - portfolio
+  - blog
+  - _posts
+  # Jekyll's default excludes (must be re-listed since a custom `exclude` replaces them)
+  - vendor
+  - .bundle
+  - Gemfile
+  - Gemfile.lock
+  - .sass-cache
+  - .jekyll-cache

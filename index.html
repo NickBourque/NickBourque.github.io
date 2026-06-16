@@ -15,10 +15,12 @@ url: /
         Hi, I'm <strong>Nick Bourque</strong>, a Software Engineer based in Halifax, Nova Scotia. I specialize in enterprise SaaS development, high-throughput delivery architecture, and spatial computing/XR device management platforms.
       </p>
       <div class="hero-ctas">
+        {% comment %} Portfolio temporarily disabled — see _config.yml exclude list.
         <a href="{{ site.baseurl }}/portfolio/" class="cta-btn primary-btn" id="hero-cta-portfolio">
           View My Work <i data-lucide="arrow-right"></i>
         </a>
-        <a href="{{ site.baseurl }}/about/" class="cta-btn secondary-btn" id="hero-cta-about">
+        {% endcomment %}
+        <a href="{{ site.baseurl }}/about/" class="cta-btn primary-btn" id="hero-cta-about">
           More About Me
         </a>
       </div>
@@ -51,9 +53,9 @@ url: /
         <p>Led development of a B2B SaaS platform from the ground up, scaling to serve tens of thousands of active users early in my career.</p>
       </div>
       <div class="teaser-card">
-        <div class="teaser-icon-box secondary-glow"><i data-lucide="users"></i></div>
-        <h3>Engineering Lead</h3>
-        <p>Directed the engineering team behind animated educational content pipelines at an international ed-tech company, streamlining content creation through CDN delivery.</p>
+        <div class="teaser-icon-box secondary-glow"><i data-lucide="globe"></i></div>
+        <h3>EdTech Engineer</h3>
+        <p>Built scalable backend systems for translated, localized animated educational content at an international ed-tech company, delivered across dozens of international markets.</p>
       </div>
       <div class="teaser-card">
         <div class="teaser-icon-box accent-glow"><i data-lucide="device-vr"></i></div>
@@ -100,6 +102,7 @@ url: /
 </section>
 
 <!-- Featured Projects Section -->
+{% comment %} Portfolio temporarily disabled — see _config.yml exclude list.
 <section class="featured-projects-section">
   <div class="container">
     <div class="section-header-split">
@@ -140,8 +143,10 @@ url: /
     </div>
   </div>
 </section>
+{% endcomment %}
 
 <!-- Latest Blog Posts -->
+{% comment %} Blog temporarily disabled — see _config.yml exclude list.
 <section class="latest-blog-section">
   <div class="container">
     <div class="section-header-split">
@@ -185,6 +190,7 @@ url: /
     </div>
   </div>
 </section>
+{% endcomment %}
 
 <!-- Contact CTA -->
 <section class="contact-cta-section">

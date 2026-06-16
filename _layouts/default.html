@@ -38,8 +38,10 @@
       <nav class="desktop-nav" aria-label="Desktop navigation">
         <a href="{{ site.baseurl }}/" class="nav-link {% if page.url == '/' %}active{% endif %}" id="nav-home">Home</a>
         <a href="{{ site.baseurl }}/about/" class="nav-link {% if page.url contains '/about/' %}active{% endif %}" id="nav-about">About</a>
+        {% comment %} Portfolio and Blog temporarily disabled — see _config.yml exclude list.
         <a href="{{ site.baseurl }}/portfolio/" class="nav-link {% if page.url contains '/portfolio/' %}active{% endif %}" id="nav-portfolio">Portfolio</a>
         <a href="{{ site.baseurl }}/blog/" class="nav-link {% if page.url contains '/blog/' %}active{% endif %}" id="nav-blog">Blog</a>
+        {% endcomment %}
         <a href="mailto:{{ site.email }}" class="cta-btn small-btn" id="nav-contact-cta">Contact</a>
       </nav>
 
@@ -62,8 +64,10 @@
     <nav class="mobile-nav" aria-label="Mobile navigation">
       <a href="{{ site.baseurl }}/" class="mobile-nav-link {% if page.url == '/' %}active{% endif %}" id="mobile-nav-home">Home</a>
       <a href="{{ site.baseurl }}/about/" class="mobile-nav-link {% if page.url contains '/about/' %}active{% endif %}" id="mobile-nav-about">About</a>
+      {% comment %} Portfolio and Blog temporarily disabled — see _config.yml exclude list.
       <a href="{{ site.baseurl }}/portfolio/" class="mobile-nav-link {% if page.url contains '/portfolio/' %}active{% endif %}" id="mobile-nav-portfolio">Portfolio</a>
       <a href="{{ site.baseurl }}/blog/" class="mobile-nav-link {% if page.url contains '/blog/' %}active{% endif %}" id="mobile-nav-blog">Blog</a>
+      {% endcomment %}
       <a href="mailto:{{ site.email }}" class="cta-btn text-center" id="mobile-nav-contact">Get in Touch</a>
     </nav>
   </div>
@@ -88,8 +92,10 @@
         <ul>
           <li><a href="{{ site.baseurl }}/" id="footer-link-home">Home</a></li>
           <li><a href="{{ site.baseurl }}/about/" id="footer-link-about">About</a></li>
+          {% comment %} Portfolio and Blog temporarily disabled — see _config.yml exclude list.
           <li><a href="{{ site.baseurl }}/portfolio/" id="footer-link-portfolio">Portfolio</a></li>
           <li><a href="{{ site.baseurl }}/blog/" id="footer-link-blog">Blog</a></li>
+          {% endcomment %}
         </ul>
       </div>
 
