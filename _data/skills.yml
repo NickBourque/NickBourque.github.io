@@ -27,7 +27,7 @@
       level: 82
 
 - group: "XR & Spatial Computing"
-  icon: "device-vr"
+  icon: "glasses"
   skills:
     - name: "AR/VR Management Systems"
       level: 90
