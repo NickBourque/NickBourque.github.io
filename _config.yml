@@ -1,4 +1,35 @@
-theme: jekyll-theme-hacker
 title: Nick Bourque
 tagline: Software Engineer
-description: Software Engineer - Halifax, Nova Scotia 🇨🇦
+description: Software Engineer specializing in SaaS architecture, scaled ed-tech content, and XR applications. Based in Halifax, Nova Scotia 🇨🇦
+email: nick.bourque@example.com # Replace with your real email or leave generic
+
+# Social settings
+github_username: NickBourque
+linkedin_username: nick-bourque
+gitlab_username: nickabourque
+
+# URL configuration for GitHub Pages
+url: "https://NickBourque.github.io"
+baseurl: ""
+
+# Permalinks for blog posts
+permalink: /blog/:title/
+
+# Sass compilation settings
+sass:
+  style: compressed
+
+# Temporarily disabled sections — excluded from the build so they are inaccessible.
+# Remove these entries (and re-enable the commented nav/home blocks in
+# _layouts/default.html and index.html) to bring them back.
+exclude:
+  - portfolio
+  - blog
+  - _posts
+  # Jekyll's default excludes (must be re-listed since a custom `exclude` replaces them)
+  - vendor
+  - .bundle
+  - Gemfile
+  - Gemfile.lock
+  - .sass-cache
+  - .jekyll-cache

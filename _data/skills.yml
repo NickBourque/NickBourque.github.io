@@ -1,0 +1,51 @@
+- group: "Backend & Database"
+  icon: "database"
+  skills:
+    - name: "PHP / Laravel"
+      level: 95
+    - name: "SQL (MySQL, PostgreSQL)"
+      level: 90
+    - name: "REST APIs"
+      level: 92
+    - name: "Redis & Caching"
+      level: 85
+    - name: "Docker & Containerization"
+      level: 80
+
+- group: "Frontend & Web Tech"
+  icon: "code"
+  skills:
+    - name: "JavaScript / TypeScript"
+      level: 92
+    - name: "Modern CSS / SCSS"
+      level: 88
+    - name: "HTML5 / Canvas"
+      level: 90
+    - name: "Vue.js & Modern Frameworks"
+      level: 85
+    - name: "Build Tooling (Vite, Webpack)"
+      level: 82
+
+- group: "XR & Spatial Computing"
+  icon: "device-vr"
+  skills:
+    - name: "AR/VR Management Systems"
+      level: 90
+    - name: "WebGL & Canvas Rendering"
+      level: 85
+    - name: "WebRTC Streaming"
+      level: 80
+    - name: "Device Provisioning"
+      level: 88
+
+- group: "Leadership & Architecture"
+  icon: "users"
+  skills:
+    - name: "Engineering Management"
+      level: 90
+    - name: "Software Architecture"
+      level: 92
+    - name: "CI/CD & DevOps Pipelines"
+      level: 85
+    - name: "Agile & Process Optimization"
+      level: 88
