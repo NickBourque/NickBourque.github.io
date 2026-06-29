@@ -1,0 +1,435 @@
+{
+  "generated": "2026-06-29",
+  "totals": {
+    "github": 38,
+    "gitlab": 2932,
+    "combined": 2970
+  },
+  "max": 141,
+  "weeks": [
+    {
+      "weekStart": "2025-06-29",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 37,
+      "total": 37,
+      "level": 2
+    },
+    {
+      "weekStart": "2025-07-06",
+      "monthLabel": "Jul",
+      "gh": 0,
+      "gl": 63,
+      "total": 63,
+      "level": 2
+    },
+    {
+      "weekStart": "2025-07-13",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 0,
+      "total": 0,
+      "level": 0
+    },
+    {
+      "weekStart": "2025-07-20",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 63,
+      "total": 63,
+      "level": 2
+    },
+    {
+      "weekStart": "2025-07-27",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 38,
+      "total": 38,
+      "level": 2
+    },
+    {
+      "weekStart": "2025-08-03",
+      "monthLabel": "Aug",
+      "gh": 0,
+      "gl": 25,
+      "total": 25,
+      "level": 1
+    },
+    {
+      "weekStart": "2025-08-10",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 0,
+      "total": 0,
+      "level": 0
+    },
+    {
+      "weekStart": "2025-08-17",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 76,
+      "total": 76,
+      "level": 3
+    },
+    {
+      "weekStart": "2025-08-24",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 79,
+      "total": 79,
+      "level": 3
+    },
+    {
+      "weekStart": "2025-08-31",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 1,
+      "total": 1,
+      "level": 1
+    },
+    {
+      "weekStart": "2025-09-07",
+      "monthLabel": "Sep",
+      "gh": 0,
+      "gl": 64,
+      "total": 64,
+      "level": 2
+    },
+    {
+      "weekStart": "2025-09-14",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 82,
+      "total": 82,
+      "level": 3
+    },
+    {
+      "weekStart": "2025-09-21",
+      "monthLabel": "",
+      "gh": 1,
+      "gl": 54,
+      "total": 55,
+      "level": 2
+    },
+    {
+      "weekStart": "2025-09-28",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 10,
+      "total": 10,
+      "level": 1
+    },
+    {
+      "weekStart": "2025-10-05",
+      "monthLabel": "Oct",
+      "gh": 0,
+      "gl": 47,
+      "total": 47,
+      "level": 2
+    },
+    {
+      "weekStart": "2025-10-12",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 61,
+      "total": 61,
+      "level": 2
+    },
+    {
+      "weekStart": "2025-10-19",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 88,
+      "total": 88,
+      "level": 3
+    },
+    {
+      "weekStart": "2025-10-26",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 44,
+      "total": 44,
+      "level": 2
+    },
+    {
+      "weekStart": "2025-11-02",
+      "monthLabel": "Nov",
+      "gh": 0,
+      "gl": 71,
+      "total": 71,
+      "level": 3
+    },
+    {
+      "weekStart": "2025-11-09",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 24,
+      "total": 24,
+      "level": 1
+    },
+    {
+      "weekStart": "2025-11-16",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 107,
+      "total": 107,
+      "level": 4
+    },
+    {
+      "weekStart": "2025-11-23",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 51,
+      "total": 51,
+      "level": 2
+    },
+    {
+      "weekStart": "2025-11-30",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 29,
+      "total": 29,
+      "level": 1
+    },
+    {
+      "weekStart": "2025-12-07",
+      "monthLabel": "Dec",
+      "gh": 0,
+      "gl": 75,
+      "total": 75,
+      "level": 3
+    },
+    {
+      "weekStart": "2025-12-14",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 31,
+      "total": 31,
+      "level": 1
+    },
+    {
+      "weekStart": "2025-12-21",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 0,
+      "total": 0,
+      "level": 0
+    },
+    {
+      "weekStart": "2025-12-28",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 0,
+      "total": 0,
+      "level": 0
+    },
+    {
+      "weekStart": "2026-01-04",
+      "monthLabel": "Jan",
+      "gh": 0,
+      "gl": 42,
+      "total": 42,
+      "level": 2
+    },
+    {
+      "weekStart": "2026-01-11",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 35,
+      "total": 35,
+      "level": 1
+    },
+    {
+      "weekStart": "2026-01-18",
+      "monthLabel": "",
+      "gh": 1,
+      "gl": 65,
+      "total": 66,
+      "level": 2
+    },
+    {
+      "weekStart": "2026-01-25",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 52,
+      "total": 52,
+      "level": 2
+    },
+    {
+      "weekStart": "2026-02-01",
+      "monthLabel": "Feb",
+      "gh": 0,
+      "gl": 67,
+      "total": 67,
+      "level": 2
+    },
+    {
+      "weekStart": "2026-02-08",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 76,
+      "total": 76,
+      "level": 3
+    },
+    {
+      "weekStart": "2026-02-15",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 58,
+      "total": 58,
+      "level": 2
+    },
+    {
+      "weekStart": "2026-02-22",
+      "monthLabel": "",
+      "gh": 5,
+      "gl": 29,
+      "total": 34,
+      "level": 1
+    },
+    {
+      "weekStart": "2026-03-01",
+      "monthLabel": "Mar",
+      "gh": 1,
+      "gl": 49,
+      "total": 50,
+      "level": 2
+    },
+    {
+      "weekStart": "2026-03-08",
+      "monthLabel": "",
+      "gh": 7,
+      "gl": 30,
+      "total": 37,
+      "level": 2
+    },
+    {
+      "weekStart": "2026-03-15",
+      "monthLabel": "",
+      "gh": 2,
+      "gl": 31,
+      "total": 33,
+      "level": 1
+    },
+    {
+      "weekStart": "2026-03-22",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 57,
+      "total": 57,
+      "level": 2
+    },
+    {
+      "weekStart": "2026-03-29",
+      "monthLabel": "",
+      "gh": 10,
+      "gl": 32,
+      "total": 42,
+      "level": 2
+    },
+    {
+      "weekStart": "2026-04-05",
+      "monthLabel": "Apr",
+      "gh": 0,
+      "gl": 73,
+      "total": 73,
+      "level": 3
+    },
+    {
+      "weekStart": "2026-04-12",
+      "monthLabel": "",
+      "gh": 1,
+      "gl": 84,
+      "total": 85,
+      "level": 3
+    },
+    {
+      "weekStart": "2026-04-19",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 103,
+      "total": 103,
+      "level": 3
+    },
+    {
+      "weekStart": "2026-04-26",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 0,
+      "total": 0,
+      "level": 0
+    },
+    {
+      "weekStart": "2026-05-03",
+      "monthLabel": "May",
+      "gh": 0,
+      "gl": 69,
+      "total": 69,
+      "level": 2
+    },
+    {
+      "weekStart": "2026-05-10",
+      "monthLabel": "",
+      "gh": 1,
+      "gl": 140,
+      "total": 141,
+      "level": 4
+    },
+    {
+      "weekStart": "2026-05-17",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 91,
+      "total": 91,
+      "level": 3
+    },
+    {
+      "weekStart": "2026-05-24",
+      "monthLabel": "",
+      "gh": 1,
+      "gl": 102,
+      "total": 103,
+      "level": 3
+    },
+    {
+      "weekStart": "2026-05-31",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 111,
+      "total": 111,
+      "level": 4
+    },
+    {
+      "weekStart": "2026-06-07",
+      "monthLabel": "Jun",
+      "gh": 0,
+      "gl": 130,
+      "total": 130,
+      "level": 4
+    },
+    {
+      "weekStart": "2026-06-14",
+      "monthLabel": "",
+      "gh": 8,
+      "gl": 77,
+      "total": 85,
+      "level": 3
+    },
+    {
+      "weekStart": "2026-06-21",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 89,
+      "total": 89,
+      "level": 3
+    },
+    {
+      "weekStart": "2026-06-28",
+      "monthLabel": "",
+      "gh": 0,
+      "gl": 20,
+      "total": 20,
+      "level": 1
+    }
+  ]
+}
