@@ -175,4 +175,46 @@ document.addEventListener('DOMContentLoaded', () => {
       revealObserver.observe(el);
     });
   }
+
+  // 9. Contribution heatmap tooltip (delegated; native title is the no-JS fallback)
+  const contribGrid = document.querySelector('.contrib-grid');
+  if (contribGrid) {
+    let tooltip = null;
+
+    const showTooltip = (cell) => {
+      if (!cell.dataset.week) return;
+      cell.removeAttribute('title'); // suppress the native tooltip while ours is shown
+      if (!tooltip) {
+        tooltip = document.createElement('div');
+        tooltip.className = 'contrib-tooltip';
+        document.body.appendChild(tooltip);
+      }
+      const total = cell.dataset.total;
+      tooltip.innerHTML =
+        `<div class="contrib-tip-date">Week of ${cell.dataset.week} &middot; ${total} contribution${total === '1' ? '' : 's'}</div>` +
+        `<div class="contrib-tip-row"><span class="contrib-tip-dot gl"></span>GitLab ${cell.dataset.gl}</div>` +
+        `<div class="contrib-tip-row"><span class="contrib-tip-dot gh"></span>GitHub ${cell.dataset.gh}</div>`;
+      const rect = cell.getBoundingClientRect();
+      tooltip.style.left = rect.left + rect.width / 2 + 'px';
+      tooltip.style.top = rect.top + 'px';
+      tooltip.style.transform = 'translate(-50%, calc(-100% - 8px))';
+      // Force reflow so the fade-in transition plays from the hidden state.
+      tooltip.classList.remove('visible');
+      void tooltip.offsetWidth;
+      tooltip.classList.add('visible');
+    };
+
+    const hideTooltip = () => {
+      if (tooltip) tooltip.classList.remove('visible');
+    };
+
+    contribGrid.addEventListener('mouseover', (e) => {
+      const cell = e.target.closest('.contrib-day');
+      if (cell && contribGrid.contains(cell)) showTooltip(cell);
+    });
+    contribGrid.addEventListener('mouseout', (e) => {
+      const cell = e.target.closest('.contrib-day');
+      if (cell) hideTooltip();
+    });
+  }
 });

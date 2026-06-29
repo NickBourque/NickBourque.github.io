@@ -1612,3 +1612,185 @@ body.light-mode .theme-toggle-btn .moon-icon { display: none; }
     gap: 1rem;
   }
 }
+
+/* ============================================================
+   Combined GitHub + GitLab contributions heatmap
+   ============================================================ */
+:root {
+  --contrib-cell: 16px;
+  --contrib-week-h: 40px;
+  --contrib-gap: 4px;
+  --contrib-l0: var(--bg-tertiary);
+  --contrib-l1: rgba(16, 185, 129, 0.28);
+  --contrib-l2: rgba(16, 185, 129, 0.52);
+  --contrib-l3: rgba(16, 185, 129, 0.78);
+  --contrib-l4: linear-gradient(135deg, #10b981 0%, #8b5cf6 100%);
+}
+
+body.light-mode {
+  --contrib-l0: #e7edf4;
+  --contrib-l1: rgba(5, 150, 105, 0.22);
+  --contrib-l2: rgba(5, 150, 105, 0.45);
+  --contrib-l3: rgba(5, 150, 105, 0.72);
+  --contrib-l4: linear-gradient(135deg, #059669 0%, #7c3aed 100%);
+}
+
+.contrib-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  border-radius: var(--border-radius-md);
+}
+
+.contrib-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.75rem;
+  margin-bottom: 1.75rem;
+}
+.contrib-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+.contrib-stat strong {
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+.contrib-stat-github svg { color: var(--accent-secondary); }
+.contrib-stat-gitlab svg { color: var(--accent-primary); }
+.contrib-stat-total { margin-left: auto; color: var(--text-muted); }
+
+.contrib-scroll {
+  overflow-x: auto;
+  /* Vertical room so the current-week pulse glow isn't clipped by the scroll box. */
+  padding: 10px 8px;
+}
+
+.contrib-chart {
+  display: inline-block;
+  min-width: max-content;
+}
+
+.contrib-months {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(var(--contrib-cell) + var(--contrib-gap));
+  margin-bottom: 0.4rem;
+}
+.contrib-month {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.contrib-grid {
+  display: grid;
+  grid-template-rows: var(--contrib-week-h);
+  grid-auto-flow: column;
+  grid-auto-columns: var(--contrib-cell);
+  gap: var(--contrib-gap);
+}
+
+.contrib-day {
+  width: var(--contrib-cell);
+  height: var(--contrib-week-h);
+  border-radius: 4px;
+  background: var(--contrib-l0);
+  transition: transform var(--transition-fast);
+}
+
+/* Square swatches in the legend even though grid blocks are tall. */
+.contrib-legend .contrib-day {
+  height: var(--contrib-cell);
+}
+.contrib-l0 { background: var(--contrib-l0); }
+.contrib-l1 { background: var(--contrib-l1); }
+.contrib-l2 { background: var(--contrib-l2); }
+.contrib-l3 { background: var(--contrib-l3); }
+.contrib-l4 { background: var(--contrib-l4); }
+.contrib-future { background: transparent; }
+
+.contrib-grid .contrib-day:hover {
+  transform: scale(1.15);
+  outline: 1.5px solid var(--text-secondary);
+  outline-offset: 1px;
+  cursor: pointer;
+}
+
+/* The week that contains today pulses to feel "live". */
+.contrib-day.contrib-current {
+  position: relative;
+  z-index: 1;
+  animation: contribPulse 2s ease-in-out infinite;
+}
+@keyframes contribPulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contrib-day.contrib-current { animation: none; box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.5); }
+}
+
+.contrib-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.3rem;
+  margin-top: 1.25rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.contrib-legend span { margin: 0 0.25rem; }
+
+.contrib-tooltip {
+  position: fixed;
+  z-index: 1200;
+  pointer-events: none;
+  padding: 0.5rem 0.7rem;
+  border-radius: var(--border-radius-sm);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px var(--shadow-color);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+.contrib-tooltip.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.contrib-tooltip .contrib-tip-date {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+.contrib-tooltip .contrib-tip-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-secondary);
+}
+.contrib-tooltip .contrib-tip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.contrib-tooltip .contrib-tip-dot.gh { background: var(--accent-secondary); }
+.contrib-tooltip .contrib-tip-dot.gl { background: var(--accent-primary); }
+
+@media (max-width: 768px) {
+  .contrib-stat-total { margin-left: 0; flex-basis: 100%; }
+}
