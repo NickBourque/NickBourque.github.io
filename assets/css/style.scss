@@ -73,6 +73,7 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 body {
@@ -128,6 +129,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Background glows */
+.glow-layer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
 .glow-bg {
   position: absolute;
   width: 600px;
