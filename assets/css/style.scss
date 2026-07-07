@@ -432,9 +432,7 @@ body.light-mode .theme-toggle-btn .moon-icon { display: none; }
 .hero-avatar {
   width: 240px;
   height: 240px;
-  border-radius: var(--border-radius-md);
   object-fit: cover;
-  border: 2px solid var(--border-color);
 }
 .profile-badge {
   display: flex;
@@ -896,9 +894,6 @@ body.light-mode .theme-toggle-btn .moon-icon { display: none; }
 }
 .sidebar-avatar {
   width: 100%;
-  border-radius: var(--border-radius-md);
-  border: 1px solid var(--border-color);
-  box-shadow: 0 10px 30px var(--shadow-color);
 }
 .sidebar-details-card {
   background: var(--bg-secondary);
