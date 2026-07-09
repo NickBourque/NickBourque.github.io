@@ -217,4 +217,47 @@ document.addEventListener('DOMContentLoaded', () => {
       if (cell) hideTooltip();
     });
   }
+
+  // 10. Mailto clipboard-copy fallback
+  const mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
+  if (mailtoLinks.length > 0) {
+    mailtoLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const email = link.href.replace('mailto:', '');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).then(() => {
+            showCopyToast(email);
+          }).catch(() => {
+            // Clipboard write failed silently — mailto still proceeds
+          });
+        }
+        // Default mailto: action is NOT prevented
+      });
+    });
+  }
+
+  function showCopyToast(email) {
+    // Remove any existing toast
+    const existing = document.querySelector('.copy-toast');
+    if (existing) existing.remove();
+
+    const toast = document.createElement('div');
+    toast.className = 'copy-toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    toast.innerHTML = `<i data-lucide="check" aria-hidden="true"></i> <span>${email} copied to clipboard</span>`;
+    document.body.appendChild(toast);
+
+    // Initialize the Lucide icon inside the toast
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+    // Trigger entrance animation
+    requestAnimationFrame(() => toast.classList.add('visible'));
+
+    // Auto-dismiss after 3 seconds
+    setTimeout(() => {
+      toast.classList.remove('visible');
+      toast.addEventListener('transitionend', () => toast.remove(), { once: true });
+    }, 3000);
+  }
 });
