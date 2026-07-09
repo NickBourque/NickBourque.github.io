@@ -9,11 +9,15 @@ linkedin_username: nick-bourque
 gitlab_username: nickabourque
 
 # URL configuration for GitHub Pages
-url: "https://NickBourque.github.io"
+url: "https://nick-bourque.ca"
 baseurl: ""
 
 # Permalinks for blog posts
 permalink: /blog/:title/
+
+# Plugins
+plugins:
+  - jekyll-sitemap
 
 # Sass compilation settings
 sass:
