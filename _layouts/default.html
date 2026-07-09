@@ -12,14 +12,168 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="{{ site.url }}/assets/img/og-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ site.baseurl }}/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/apple-touch-icon.png">
+  <link rel="manifest" href="{{ site.baseurl }}/site.webmanifest">
+
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+
+  <!-- GEO: Person Entity Resolution -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nick Bourque",
+    "url": "https://nick-bourque.ca",
+    "jobTitle": "Senior Software Engineer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "ArborXR",
+      "url": "https://arborxr.com"
+    },
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Nova Scotia Community College"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Halifax",
+      "addressRegion": "Nova Scotia",
+      "addressCountry": "CA"
+    },
+    "sameAs": [
+      "https://github.com/NickBourque",
+      "https://linkedin.com/in/nick-bourque",
+      "https://gitlab.com/nickabourque"
+    ],
+    "knowsAbout": [
+      "Enterprise SaaS Architecture",
+      "Laravel",
+      "PHP",
+      "PostgreSQL",
+      "MySQL",
+      "REST API Design",
+      "Spatial Computing",
+      "XR Device Management",
+      "Mobile Device Management (MDM)",
+      "Vue.js",
+      "TypeScript",
+      "Docker",
+      "Redis",
+      "OAuth2",
+      "SAML",
+      "MQTT",
+      "WebRTC",
+      "CI/CD Pipelines",
+      "Engineering Management"
+    ],
+    "description": "Senior Software Engineer specializing in enterprise SaaS development, high-throughput delivery architecture, and spatial computing/XR device management platforms. Based in Halifax, Nova Scotia."
+  }
+  </script>
+
+  <!-- GEO: WebSite Entity -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Nick Bourque",
+    "url": "https://nick-bourque.ca",
+    "description": "{{ site.description }}",
+    "author": {
+      "@type": "Person",
+      "name": "Nick Bourque"
+    }
+  }
+  </script>
+
+  <!-- AEO: FAQ Schema for Answer Engine Extraction -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who is Nick Bourque?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nick Bourque is a Senior Software Engineer based in Halifax, Nova Scotia, Canada. He specializes in enterprise SaaS development, high-throughput delivery architecture, and spatial computing/XR device management platforms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What technologies does Nick Bourque specialize in?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nick specializes in backend and database architecture using PHP, Laravel, PostgreSQL, and MySQL. He also works with TypeScript, Vue.js, Docker, Redis, REST API design, WebRTC, MQTT, and OAuth2/SAML authentication systems."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where does Nick Bourque work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nick currently works as a Senior Software Engineer at ArborXR, where he builds and re-architects the enterprise XR mobile device management (MDM) platform that enables businesses to deploy and manage AR/VR hardware at scale."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Nick Bourque's experience with Laravel?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nick has extensive experience with Laravel across multiple roles, using it to build enterprise SaaS platforms, public REST APIs with role-based access control (RBAC), audit log systems, OAuth2/SAML authentication layers, and high-volume real-time synchronization systems."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Nick Bourque's experience in XR and spatial computing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At ArborXR, Nick engineers device management platforms in the spatial computing sector, including re-architecting the core XR MDM backend and frontend, designing enterprise-critical REST APIs (v2/v3), building audit log systems for compliance, and engineering differential patching systems for content delivery to AR/VR headsets."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Nick Bourque's educational background?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nick completed Data Application Development at Nova Scotia Community College (NSCC) from 2015-2017, with a concentration in data-solutions development and object-oriented programming. He received the Data Application Programming Award recognizing attitude, aptitude, and accomplishment."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What SaaS platforms has Nick Bourque built?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nick led development of a B2B SaaS platform from the ground up at Guild Software, scaling it to serve tens of thousands of active users. He built membership, licensure, online payment, and government-reporting systems used by professional associations. He also built scalable backend systems at Binogi Studios for internationally localized educational content."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I contact Nick Bourque?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nick can be reached via email at nickabourque@gmail.com, on LinkedIn at linkedin.com/in/nick-bourque, or through his GitHub profile at github.com/NickBourque."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="dark-mode">
 
