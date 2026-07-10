@@ -28,7 +28,10 @@ url: /
     <div class="hero-visual">
       <div class="profile-card-wrapper">
         <div class="profile-card">
-          <img src="{{ site.baseurl }}/assets/img/nick-bourque.png" alt="Nick Bourque" class="hero-avatar">
+          <picture>
+            <source srcset="{{ site.baseurl }}/assets/img/nick-bourque.webp" type="image/webp">
+            <img src="{{ site.baseurl }}/assets/img/nick-bourque.png" alt="Nick Bourque" class="hero-avatar" width="500" height="500">
+          </picture>
           <div class="profile-badge">
             <span class="pulse-dot"></span>
             <span>Coding in Halifax</span>

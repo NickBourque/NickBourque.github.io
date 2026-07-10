@@ -47,6 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
       menuToggle.setAttribute('aria-expanded', !isExpanded);
       mobileMenu.setAttribute('aria-hidden', isExpanded);
       
+      // Toggle inert to prevent focus on hidden menu items (a11y)
+      if (!isExpanded) {
+        mobileMenu.removeAttribute('inert');
+      } else {
+        mobileMenu.setAttribute('inert', '');
+      }
+      
       // Toggle body scrolling to prevent scroll background when menu is open
       if (!isExpanded) {
         document.body.style.overflow = 'hidden';
@@ -60,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (window.innerWidth > 768) {
         menuToggle.setAttribute('aria-expanded', 'false');
         mobileMenu.setAttribute('aria-hidden', 'true');
+        mobileMenu.setAttribute('inert', '');
         document.body.style.overflow = '';
       }
     });
