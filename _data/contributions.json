@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-17",
+  "generated": "2026-07-18",
   "totals": {
-    "github": 49,
-    "gitlab": 3173,
-    "combined": 3222
+    "github": 58,
+    "gitlab": 3216,
+    "combined": 3274
   },
-  "max": 162,
+  "max": 214,
   "weeks": [
     {
       "weekStart": "2025-07-13",
@@ -85,7 +85,7 @@
       "gh": 0,
       "gl": 82,
       "total": 82,
-      "level": 3
+      "level": 2
     },
     {
       "weekStart": "2025-09-21",
@@ -109,7 +109,7 @@
       "gh": 0,
       "gl": 47,
       "total": 47,
-      "level": 2
+      "level": 1
     },
     {
       "weekStart": "2025-10-12",
@@ -125,7 +125,7 @@
       "gh": 0,
       "gl": 88,
       "total": 88,
-      "level": 3
+      "level": 2
     },
     {
       "weekStart": "2025-10-26",
@@ -133,7 +133,7 @@
       "gh": 0,
       "gl": 44,
       "total": 44,
-      "level": 2
+      "level": 1
     },
     {
       "weekStart": "2025-11-02",
@@ -157,7 +157,7 @@
       "gh": 0,
       "gl": 107,
       "total": 107,
-      "level": 3
+      "level": 2
     },
     {
       "weekStart": "2025-11-23",
@@ -165,7 +165,7 @@
       "gh": 0,
       "gl": 51,
       "total": 51,
-      "level": 2
+      "level": 1
     },
     {
       "weekStart": "2025-11-30",
@@ -213,7 +213,7 @@
       "gh": 0,
       "gl": 42,
       "total": 42,
-      "level": 2
+      "level": 1
     },
     {
       "weekStart": "2026-01-11",
@@ -237,7 +237,7 @@
       "gh": 0,
       "gl": 52,
       "total": 52,
-      "level": 2
+      "level": 1
     },
     {
       "weekStart": "2026-02-01",
@@ -277,7 +277,7 @@
       "gh": 1,
       "gl": 49,
       "total": 50,
-      "level": 2
+      "level": 1
     },
     {
       "weekStart": "2026-03-08",
@@ -309,7 +309,7 @@
       "gh": 10,
       "gl": 32,
       "total": 42,
-      "level": 2
+      "level": 1
     },
     {
       "weekStart": "2026-04-05",
@@ -325,7 +325,7 @@
       "gh": 1,
       "gl": 84,
       "total": 85,
-      "level": 3
+      "level": 2
     },
     {
       "weekStart": "2026-04-19",
@@ -333,7 +333,7 @@
       "gh": 0,
       "gl": 103,
       "total": 103,
-      "level": 3
+      "level": 2
     },
     {
       "weekStart": "2026-04-26",
@@ -357,7 +357,7 @@
       "gh": 1,
       "gl": 140,
       "total": 141,
-      "level": 4
+      "level": 3
     },
     {
       "weekStart": "2026-05-17",
@@ -365,7 +365,7 @@
       "gh": 0,
       "gl": 91,
       "total": 91,
-      "level": 3
+      "level": 2
     },
     {
       "weekStart": "2026-05-24",
@@ -373,7 +373,7 @@
       "gh": 1,
       "gl": 102,
       "total": 103,
-      "level": 3
+      "level": 2
     },
     {
       "weekStart": "2026-05-31",
@@ -389,7 +389,7 @@
       "gh": 0,
       "gl": 130,
       "total": 130,
-      "level": 4
+      "level": 3
     },
     {
       "weekStart": "2026-06-14",
@@ -397,7 +397,7 @@
       "gh": 8,
       "gl": 77,
       "total": 85,
-      "level": 3
+      "level": 2
     },
     {
       "weekStart": "2026-06-21",
@@ -405,7 +405,7 @@
       "gh": 0,
       "gl": 89,
       "total": 89,
-      "level": 3
+      "level": 2
     },
     {
       "weekStart": "2026-06-28",
@@ -421,14 +421,14 @@
       "gh": 7,
       "gl": 141,
       "total": 148,
-      "level": 4
+      "level": 3
     },
     {
       "weekStart": "2026-07-12",
       "monthLabel": "",
-      "gh": 0,
-      "gl": 162,
-      "total": 162,
+      "gh": 9,
+      "gl": 205,
+      "total": 214,
       "level": 4
     }
   ]
