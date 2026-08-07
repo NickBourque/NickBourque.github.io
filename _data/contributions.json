@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-06",
+  "generated": "2026-08-07",
   "totals": {
     "github": 63,
-    "gitlab": 3233,
-    "combined": 3296
+    "gitlab": 3219,
+    "combined": 3282
   },
   "max": 214,
   "weeks": [
@@ -11,8 +11,8 @@
       "weekStart": "2025-08-03",
       "monthLabel": "",
       "gh": 0,
-      "gl": 25,
-      "total": 25,
+      "gl": 11,
+      "total": 11,
       "level": 1
     },
     {
