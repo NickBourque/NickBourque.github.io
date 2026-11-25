@@ -1,9 +1,9 @@
 {
-  "generated": "2026-11-24",
+  "generated": "2026-11-25",
   "totals": {
-    "github": 144,
-    "gitlab": 3997,
-    "combined": 4141
+    "github": 145,
+    "gitlab": 4037,
+    "combined": 4182
   },
   "max": 214,
   "weeks": [
@@ -11,8 +11,8 @@
       "weekStart": "2025-11-23",
       "monthLabel": "",
       "gh": 0,
-      "gl": 51,
-      "total": 51,
+      "gl": 39,
+      "total": 39,
       "level": 1
     },
     {
@@ -426,10 +426,10 @@
     {
       "weekStart": "2026-11-22",
       "monthLabel": "",
-      "gh": 3,
-      "gl": 35,
-      "total": 38,
-      "level": 1
+      "gh": 4,
+      "gl": 87,
+      "total": 91,
+      "level": 2
     }
   ]
 }
