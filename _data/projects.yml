@@ -24,3 +24,9 @@
     - label: "Read the devlog"
       url: "https://poopygoose.studio/devlog/"
   featured: true
+  # Structured data (schema.org) for this project
+  schema_type: "VideoGame"
+  genre: "Cozy comedy"
+  studio:
+    name: "Poopy Goose Studio"
+    url: "https://poopygoose.studio"

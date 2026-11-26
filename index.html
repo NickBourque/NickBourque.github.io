@@ -1,5 +1,7 @@
 ---
 layout: default
+seo_title: "Nick Bourque | Senior Software Engineer in Halifax, Nova Scotia"
+description: "Nick Bourque is a senior software engineer in Halifax, Nova Scotia, building APIs and backends for XR device management, edtech and B2B SaaS."
 url: /
 ---
 
@@ -7,9 +9,9 @@ url: /
   <svg class="topo" data-topo="880,300,22,16,1.2;160,640,10,22,4" data-draw viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="mono">Halifax, Nova Scotia · 44.6488° N, 63.5752° W</p>
+      <p class="mono">Nick Bourque · Halifax, Nova Scotia · 44.6488° N, 63.5752° W</p>
       <h1 class="hero-title">Senior software engineer on the <span>Atlantic coast</span>.</h1>
-      <p class="hero-lede">I'm Nick. I build the backend for ArborXR's XR device-management platform. Before that, localized edtech at Binogi and B2B SaaS at Guild.</p>
+      <p class="hero-lede">I'm Nick Bourque. I build the backend for ArborXR's XR device-management platform. Before that, localized edtech at Binogi Studios and B2B SaaS at Guild Software.</p>
       <div class="hero-ctas">
         <a href="{{ site.baseurl }}/about/" class="btn" id="hero-cta-about">Follow the trail
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -81,31 +83,34 @@ url: /
   </div>
 </section>
 
-{% comment %} Projects block not shown yet — see _config.yml exclude list.
-<section class="section">
+<section class="section" id="projects">
   <div class="wrap">
     <div class="section-head">
-      <h2>Projects</h2>
-      <a href="{{ site.baseurl }}/projects/" id="featured-projects-view-all">All projects →</a>
+      <h2>Side quests</h2>
+      <a href="{{ site.baseurl }}/projects/" class="mono" id="featured-projects-view-all">All projects →</a>
     </div>
-    <div class="projects">
-      {% assign featured_projects = site.data.projects | where: "featured", true %}
-      {% for project in featured_projects %}
-      <article class="project panel">
-        <span class="mono">{{ project.category }} · {{ project.role }}</span>
+    {% assign featured_projects = site.data.projects | where: "featured", true %}
+    {% for project in featured_projects limit:1 %}
+    {% assign project_slug = project.title | slugify %}
+    <article class="project-feature project-teaser panel">
+      {% if project.image %}
+      <a class="project-shot" href="{{ site.baseurl }}/projects/#project-{{ project_slug }}" tabindex="-1" aria-hidden="true">
+        <img src="{{ site.baseurl }}{{ project.image }}" alt="" width="1200" height="630" loading="lazy">
+      </a>
+      {% endif %}
+      <div class="project-body">
+        <p class="mono project-meta"><span class="pin" aria-hidden="true"></span>{{ project.kind }} · <span class="project-status">{{ project.status }}</span></p>
         <h3>{{ project.title }}</h3>
-        <p>{{ project.description }}</p>
-        <ul class="chips">{% for tech in project.tech_stack %}<li class="chip">{{ tech }}</li>{% endfor %}</ul>
-        <div class="project-links">
-          <a href="{{ project.github_url }}" target="_blank" rel="noopener">Code</a>
-          <a href="{{ project.demo_url }}" target="_blank" rel="noopener">Live demo</a>
+        <p class="project-summary">{{ project.summary }}</p>
+        <div class="project-actions">
+          <a href="{{ site.baseurl }}/projects/#project-{{ project_slug }}" class="btn">More about {{ project.title }}</a>
+          <a href="{{ project.links[0].url }}" class="btn btn-line" target="_blank" rel="noopener">{{ project.links[0].url | remove: "https://" }} <span aria-hidden="true">↗</span></a>
         </div>
-      </article>
-      {% endfor %}
-    </div>
+      </div>
+    </article>
+    {% endfor %}
   </div>
 </section>
-{% endcomment %}
 
 {% comment %} Blog temporarily disabled — see _config.yml exclude list.
 <section class="section">
@@ -140,7 +145,7 @@ url: /
       </div>
       <div class="contact-actions">
         <a href="mailto:{{ site.email }}" class="btn" id="contact-action-email">Email me</a>
-        <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" class="btn btn-line" id="contact-action-linkedin">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank" rel="me noopener" class="btn btn-line" id="contact-action-linkedin">LinkedIn</a>
       </div>
     </div>
   </div>

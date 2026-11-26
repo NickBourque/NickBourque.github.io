@@ -1,0 +1,166 @@
+{%- comment -%}
+  Structured data (schema.org JSON-LD) as one linked @graph.
+  - Person and WebSite are defined once, with stable @ids, on every page.
+  - Each page adds its own page node that points back to them.
+  - FAQPage (About) and the project list (Projects) are only emitted on the page
+    where the same content is visible, built from the same _data files.
+{%- endcomment -%}
+{%- assign base = site.url -%}
+{%- assign person_id = base | append: "/#person" -%}
+{%- assign website_id = base | append: "/#website" -%}
+{%- assign page_url = base | append: page.url -%}
+{%- capture page_title -%}{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}{%- endcapture -%}
+{%- assign page_type = page.schema_type | default: "WebPage" -%}
+{%- assign knows = "" | split: "" -%}
+{%- for group in site.data.skills -%}{%- assign knows = knows | concat: group.skills -%}{%- endfor -%}
+{%- assign topics = "Software architecture,Backend development,SaaS platforms,REST API design,XR device management,Mobile device management (MDM),Educational technology" | split: "," -%}
+{%- assign knows = topics | concat: knows -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": {{ person_id | jsonify }},
+      "name": "Nick Bourque",
+      "givenName": "Nick",
+      "familyName": "Bourque",
+      "url": {{ base | append: "/" | jsonify }},
+      "mainEntityOfPage": {{ base | append: "/about/" | jsonify }},
+      "image": {
+        "@type": "ImageObject",
+        "url": {{ base | append: "/assets/img/nick-bourque.png" | jsonify }},
+        "width": 500,
+        "height": 500
+      },
+      "jobTitle": "Senior Software Engineer",
+      "description": {{ site.description | jsonify }},
+      "email": {{ "mailto:" | append: site.email | jsonify }},
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Halifax",
+        "addressRegion": "Nova Scotia",
+        "addressCountry": "CA"
+      },
+      "homeLocation": { "@type": "City", "name": "Halifax, Nova Scotia" },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "ArborXR",
+        "url": "https://arborxr.com"
+      },
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Senior Software Engineer",
+        "occupationLocation": { "@type": "City", "name": "Halifax, Nova Scotia" }
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Nova Scotia Community College",
+        "alternateName": "NSCC",
+        "url": "https://www.nscc.ca"
+      },
+      "award": "Data Application Programming Award, Nova Scotia Community College IT Campus",
+      "knowsAbout": {{ knows | jsonify }},
+      "knowsLanguage": "en",
+      "sameAs": [
+        {{ "https://github.com/" | append: site.github_username | jsonify }},
+        {{ "https://www.linkedin.com/in/" | append: site.linkedin_username | append: "/" | jsonify }},
+        {{ "https://gitlab.com/" | append: site.gitlab_username | jsonify }}
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": {{ website_id | jsonify }},
+      "url": {{ base | append: "/" | jsonify }},
+      "name": {{ site.title | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "inLanguage": "en-CA",
+      "publisher": { "@id": {{ person_id | jsonify }} },
+      "author": { "@id": {{ person_id | jsonify }} }
+    },
+    {
+      "@type": {{ page_type | jsonify }},
+      "@id": {{ page_url | append: "#webpage" | jsonify }},
+      "url": {{ page_url | jsonify }},
+      "name": {{ page.seo_title | default: page_title | jsonify }},
+      "description": {{ page.description | default: site.description | jsonify }},
+      "inLanguage": "en-CA",
+      "isPartOf": { "@id": {{ website_id | jsonify }} },
+      "about": { "@id": {{ person_id | jsonify }} },
+      {%- if page_type == "ProfilePage" %}
+      "mainEntity": { "@id": {{ person_id | jsonify }} },
+      {%- endif %}
+      {%- if page.url contains "/projects/" %}
+      "mainEntity": { "@id": {{ page_url | append: "#projects" | jsonify }} },
+      {%- endif %}
+      "primaryImageOfPage": {{ base | append: "/assets/img/og-preview.jpg" | jsonify }}
+      {%- if page.url != "/" %},
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ base | append: "/" | jsonify }} },
+          { "@type": "ListItem", "position": 2, "name": {{ page.breadcrumb | default: page.heading | default: page.title | jsonify }}, "item": {{ page_url | jsonify }} }
+        ]
+      }
+      {%- endif %}
+    }
+    {%- if page.faq %},
+    {
+      "@type": "FAQPage",
+      "@id": {{ page_url | append: "#quick-answers" | jsonify }},
+      "url": {{ page_url | append: "#quick-answers" | jsonify }},
+      "isPartOf": { "@id": {{ page_url | append: "#webpage" | jsonify }} },
+      "about": { "@id": {{ person_id | jsonify }} },
+      "mainEntity": [
+        {%- for item in site.data.faq %}
+        {
+          "@type": "Question",
+          "name": {{ item.question | jsonify }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ item.answer | markdownify | strip_html | normalize_whitespace | strip | jsonify }}
+          }
+        }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ]
+    }
+    {%- endif %}
+    {%- if page.url contains "/projects/" %},
+    {
+      "@type": "ItemList",
+      "@id": {{ page_url | append: "#projects" | jsonify }},
+      "name": "Projects by Nick Bourque",
+      "itemListElement": [
+        {%- for project in site.data.projects %}
+        {%- assign project_slug = project.title | slugify %}
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.index }},
+          "item": {
+            "@type": {{ project.schema_type | default: "CreativeWork" | jsonify }},
+            "@id": {{ page_url | append: "#project-" | append: project_slug | jsonify }},
+            "name": {{ project.title | jsonify }},
+            "url": {{ project.links[0].url | jsonify }},
+            "description": {{ project.summary | jsonify }},
+            "abstract": {{ project.description | markdownify | strip_html | normalize_whitespace | strip | jsonify }},
+            {%- if project.image %}
+            "image": {{ base | append: project.image | jsonify }},
+            {%- endif %}
+            {%- if project.genre %}
+            "genre": {{ project.genre | jsonify }},
+            {%- endif %}
+            {%- if project.studio %}
+            "producer": { "@type": "Organization", "name": {{ project.studio.name | jsonify }}, "url": {{ project.studio.url | jsonify }} },
+            {%- endif %}
+            "creativeWorkStatus": {{ project.status | jsonify }},
+            "keywords": {{ project.tech | join: ", " | jsonify }},
+            "creator": { "@id": {{ person_id | jsonify }} }
+          }
+        }{% unless forloop.last %},{% endunless %}
+        {%- endfor %}
+      ]
+    }
+    {%- endif %}
+  ]
+}
+</script>

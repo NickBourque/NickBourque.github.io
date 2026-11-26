@@ -1,9 +1,13 @@
 ---
 layout: page
 title: "About Nick Bourque"
+seo_title: "About Nick Bourque | Senior Software Engineer at ArborXR, Halifax"
+breadcrumb: "About"
+schema_type: "ProfilePage"
+faq: true
 heading: "Nine years on the trail."
-eyebrow: "About · Halifax, Nova Scotia"
-description: "Learn about Nick Bourque's career journey from SaaS development at Guild Software, through edtech engineering at Binogi Studios, to XR device management at ArborXR. Based in Halifax, Nova Scotia."
+eyebrow: "About Nick Bourque · Halifax, Nova Scotia"
+description: "Nick Bourque is a senior software engineer at ArborXR in Halifax, Nova Scotia. His experience, skills, education, side projects and how to reach him."
 url: /about/
 ---
 
@@ -32,7 +36,7 @@ url: /about/
   </aside>
 </div>
 
-<section class="section">
+<section class="section" id="values">
   <div class="section-head">
     <h2>What I value</h2>
   </div>
@@ -52,7 +56,7 @@ url: /about/
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="experience">
   <div class="section-head">
     <h2>The trail so far</h2>
     <span class="mono">newest first</span>
@@ -71,4 +75,19 @@ url: /about/
     {% endfor %}
   </ol>
   <p class="trail-start">Trailhead: Halifax, 2015</p>
+</section>
+
+<section class="section" id="quick-answers">
+  <div class="section-head">
+    <h2>Quick answers</h2>
+    <span class="mono">the short version</span>
+  </div>
+  <div class="qa">
+    {% for item in site.data.faq %}
+    <div class="qa-item panel" id="{{ item.question | slugify }}">
+      <h3>{{ item.question }}</h3>
+      {{ item.answer | markdownify }}
+    </div>
+    {% endfor %}
+  </div>
 </section>

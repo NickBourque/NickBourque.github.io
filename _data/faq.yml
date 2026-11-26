@@ -1,0 +1,25 @@
+# Quick answers shown on the About page and published as FAQPage structured data
+# from the same text, so what search engines and AI assistants read always matches
+# what's on the page. Keep each answer to roughly 40–60 words, written so it still
+# makes sense when quoted on its own. Markdown links are allowed in `answer`.
+
+- question: "Who is Nick Bourque?"
+  answer: "Nick Bourque is a senior software engineer based in Halifax, Nova Scotia, Canada. He builds the backend for ArborXR's XR device-management platform, which companies use to run fleets of AR/VR headsets. He has been building software professionally since 2017, across B2B SaaS, localized educational technology and XR."
+
+- question: "What does Nick Bourque do at ArborXR?"
+  answer: "At ArborXR, Nick re-architected the core XR mobile device management (MDM) backend and frontend. He owns the public REST API (v2 and v3) with user-scoped tokens and role-based access control, built the audit log and a differential patching system for faster content delivery to headsets, and maintains the OAuth2/SAML sign-in layer."
+
+- question: "What technologies does Nick Bourque work with?"
+  answer: "Day to day, Nick works with PHP and Laravel, PostgreSQL, MySQL, TypeScript, Vue.js and REST API design. He regularly uses Redis, Docker, MQTT, OAuth2/SAML and CI/CD, and has shipped work with WebRTC, WebGL and Canvas, Vite and Webpack."
+
+- question: "Where did Nick Bourque work before ArborXR?"
+  answer: "From 2020 to 2022 Nick was a senior software engineer at Binogi Studios, building backend systems for localized animated lessons shipped to dozens of international markets. From 2017 to 2020 he was lead developer at Guild Software, leading a B2B SaaS platform for professional associations with tens of thousands of members."
+
+- question: "What is Poopy Goose?"
+  answer: "Poopy Goose is a cozy-chaos video game that Nick Bourque is building under his indie label, Poopy Goose Studio. You play a sweet goose with no manners in a little world made of paper cut-outs. It is in development in Unity; platforms and a release date have not been announced. See [poopygoose.studio](https://poopygoose.studio)."
+
+- question: "Where did Nick Bourque study?"
+  answer: "Nick studied Data Application Development at Nova Scotia Community College (NSCC) from 2015 to 2017, concentrating on data-solutions development and object-oriented programming. He received the Data Application Programming Award from the NSCC IT Campus faculty for attitude, aptitude and accomplishment."
+
+- question: "How can I contact Nick Bourque?"
+  answer: "The quickest way to reach Nick is by email at nickabourque@gmail.com. He is also on [LinkedIn](https://www.linkedin.com/in/nick-bourque/), [GitHub](https://github.com/NickBourque) and [GitLab](https://gitlab.com/nickabourque). He is open to conversations about APIs, scaling SaaS platforms and XR device management."

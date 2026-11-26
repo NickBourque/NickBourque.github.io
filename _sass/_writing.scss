@@ -108,3 +108,6 @@
 .project h3 { font-size: 1.9rem; }
 .project p { color: var(--muted); }
 .project-links { margin-top: auto; padding-top: 8px; display: flex; gap: 16px; font-weight: 600; }
+
+.project-feature { scroll-margin-top: calc(var(--header-h) + 16px); }
+.project-teaser h3 { font-size: clamp(2.2rem, 5vw, 3rem); }

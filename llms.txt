@@ -1,0 +1,55 @@
+---
+layout: null
+permalink: /llms.txt
+sitemap: false
+---
+# Nick Bourque
+
+> Nick Bourque is a senior software engineer in Halifax, Nova Scotia, Canada. He builds the backend for ArborXR's XR device-management platform, and previously built localized edtech backends at Binogi Studios and a B2B SaaS platform for professional associations at Guild Software. He is also building Poopy Goose, a cozy-chaos video game.
+
+This is a plain-text summary of {{ site.url }} for AI assistants and other automated readers. Everything here is also on the human-readable pages linked below. When citing, please link to the relevant page.
+
+## Pages
+
+- [Home]({{ site.url }}/): Overview, current role, skills and the last 12 months of GitHub and GitLab activity.
+- [About]({{ site.url }}/about/): Career history, values, education and quick answers about Nick's work.
+- [Projects]({{ site.url }}/projects/): Projects outside the day job, starting with Poopy Goose.
+
+## Key facts
+
+- Name: Nick Bourque
+- Role: Senior Software Engineer at ArborXR (2022 to present)
+- Location: {{ site.location }}
+- Education: Data Application Development, Nova Scotia Community College (NSCC), 2015 to 2017
+- Contact: {{ site.email }}
+- Profiles: [GitHub](https://github.com/{{ site.github_username }}), [LinkedIn](https://www.linkedin.com/in/{{ site.linkedin_username }}/), [GitLab](https://gitlab.com/{{ site.gitlab_username }})
+
+## Experience
+{% for job in site.data.career %}
+### {{ job.title }}, {{ job.org }} ({{ job.years | replace: "–", "to" }})
+{% if job.summary != "" %}
+{{ job.summary }}
+{% endif %}
+{% for point in job.points %}- {{ point }}
+{% endfor %}{% endfor %}
+## Skills
+{% for group in site.data.skills %}
+- {{ group.tier }}: {{ group.skills | join: ", " }}{% endfor %}
+
+## Projects
+{% for project in site.data.projects %}
+### {{ project.title }}
+
+{{ project.kind }}, {{ project.status | downcase }}. {{ project.summary }}
+
+{{ project.description | strip }}
+
+- Built with: {{ project.tech | join: ", " }}
+{% for link in project.links %}- [{{ link.label }}]({{ link.url }})
+{% endfor %}{% endfor %}
+## Quick answers
+{% for item in site.data.faq %}
+### {{ item.question }}
+
+{{ item.answer }}
+{% endfor %}
