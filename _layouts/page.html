@@ -1,20 +1,17 @@
 ---
 layout: default
 ---
-<div class="page-container">
-  <header class="page-header">
-    <div class="container">
-      <h1 class="page-title">{{ page.title }}</h1>
-      {% if page.subtitle %}
-        <p class="page-subtitle">{{ page.subtitle }}</p>
-      {% endif %}
-      <div class="header-divider"></div>
-    </div>
-  </header>
+<header class="page-head">
+  <svg class="topo" data-topo="1000,200,18,15,3.1" data-draw viewBox="0 0 1200 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+  <div class="wrap page-head-inner">
+    {% if page.eyebrow %}<p class="mono">{{ page.eyebrow }}</p>{% endif %}
+    <h1 class="page-title">{{ page.heading | default: page.title }}</h1>
+    {% if page.subtitle %}<p class="page-subtitle">{{ page.subtitle }}</p>{% endif %}
+  </div>
+</header>
 
-  <section class="page-content-section">
-    <div class="container">
-      {{ content }}
-    </div>
-  </section>
+<div class="page-body">
+  <div class="wrap">
+    {{ content }}
+  </div>
 </div>

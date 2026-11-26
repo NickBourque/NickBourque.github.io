@@ -1,271 +1,123 @@
 /* ==========================================================================
-   Nick Bourque - Revamped Interaction Scripts
+   Nick Bourque — site scripts (Coastline theme)
+   The saved theme is applied by an inline script in <head>; this file only
+   handles the toggle, the mobile menu, contour maps and small extras.
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Initialize Lucide Icons
-  if (typeof lucide !== 'undefined') {
-    lucide.createIcons();
-  }
+  const root = document.documentElement;
 
-  // 2. Light / Dark Theme Toggle
+  // 1. Theme toggle. With no saved choice the CSS follows the OS setting.
   const themeToggle = document.getElementById('theme-toggle');
-  const body = document.body;
-
-  // Retrieve theme preference from localStorage or default to dark
-  const storedTheme = localStorage.getItem('theme') || 'dark';
-  if (storedTheme === 'light') {
-    body.classList.add('light-mode');
-    body.classList.remove('dark-mode');
-  } else {
-    body.classList.add('dark-mode');
-    body.classList.remove('light-mode');
-  }
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  const currentTheme = () => root.getAttribute('data-theme') || (prefersDark.matches ? 'dark' : 'light');
 
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      if (body.classList.contains('light-mode')) {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        body.classList.add('light-mode');
-        body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light');
-      }
+      const next = currentTheme() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) { /* storage blocked */ }
     });
   }
 
-  // 3. Mobile Navigation Drawer
+  // 2. Mobile menu
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
 
+  const setMenu = (open) => {
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    mobileMenu.setAttribute('aria-hidden', String(!open));
+    if (open) mobileMenu.removeAttribute('inert'); else mobileMenu.setAttribute('inert', '');
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+
   if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener('click', () => {
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      
-      menuToggle.setAttribute('aria-expanded', !isExpanded);
-      mobileMenu.setAttribute('aria-hidden', isExpanded);
-      
-      // Toggle inert to prevent focus on hidden menu items (a11y)
-      if (!isExpanded) {
-        mobileMenu.removeAttribute('inert');
-      } else {
-        mobileMenu.setAttribute('inert', '');
-      }
-      
-      // Toggle body scrolling to prevent scroll background when menu is open
-      if (!isExpanded) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = '';
-      }
+    menuToggle.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') { setMenu(false); menuToggle.focus(); }
     });
-
-    // Close mobile menu if window is resized above tablet breakpoint
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        mobileMenu.setAttribute('aria-hidden', 'true');
-        mobileMenu.setAttribute('inert', '');
-        document.body.style.overflow = '';
-      }
-    });
+    window.addEventListener('resize', () => { if (window.innerWidth > 768) setMenu(false); });
   }
 
-  // 4. Portfolio Category Filtering
+  // 3. Contour maps. Each <svg class="topo" data-topo="cx,cy,rings,step,seed;..."> gets
+  //    wobbly concentric rings drawn around each centre. Deterministic, so every
+  //    visit shows the same "terrain".
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll('svg.topo[data-topo]').forEach((svg) => {
+    const centres = svg.dataset.topo.split(';').map((c) => c.split(',').map(Number));
+    centres.forEach(([cx, cy, count, step, seed]) => {
+      for (let k = 1; k <= count; k++) {
+        const r0 = k * step;
+        let d = '';
+        for (let j = 0; j <= 96; j++) {
+          const t = (j / 96) * Math.PI * 2;
+          const r = r0 * (1
+            + 0.09 * Math.sin(3 * t + seed + k * 0.35)
+            + 0.05 * Math.sin(5 * t + seed * 2 - k * 0.2)
+            + 0.03 * Math.sin(8 * t + k));
+          const x = cx + r * Math.cos(t) * 1.35;
+          const y = cy + r * Math.sin(t);
+          d += (j ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1);
+        }
+        const path = document.createElementNS(SVG_NS, 'path');
+        path.setAttribute('d', d + 'Z');
+        path.setAttribute('pathLength', '1');
+        if (k % 5 === 0) path.setAttribute('class', 'major');
+        svg.appendChild(path);
+      }
+    });
+    if (!reduceMotion && svg.dataset.draw !== undefined) svg.classList.add('draw');
+  });
+
+  // 4. Portfolio filter (portfolio page only)
   const filterButtons = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card[data-category]');
-
-  if (filterButtons.length > 0 && projectCards.length > 0) {
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Toggle active button class
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        const filter = button.getAttribute('data-filter');
-
-        projectCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          
-          if (filter === 'all' || category === filter) {
-            card.style.display = 'flex';
-            // Subtle fade-in animation trigger
-            card.style.opacity = '0';
-            card.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-              card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-              card.style.opacity = '1';
-              card.style.transform = 'scale(1)';
-            }, 50);
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
+  const projects = document.querySelectorAll('.project[data-category]');
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach((b) => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+      button.classList.add('active');
+      button.setAttribute('aria-pressed', 'true');
+      const filter = button.dataset.filter;
+      projects.forEach((p) => { p.hidden = !(filter === 'all' || p.dataset.category === filter); });
     });
-  }
+  });
 
-  // 5. Scroll Progress Bar (Blog Posts)
+  // 5. Reading progress (blog posts only)
   const progressBar = document.getElementById('scroll-progress-bar');
   if (progressBar) {
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressBar.style.width = scrollPercent + '%';
-    });
-  }
-
-  // 6. Fallback Scroll Shrinking Header (for browsers missing scroll-driven animations)
-  const header = document.querySelector('.site-header');
-  if (header && !CSS.supports('(animation-timeline: scroll()) and (animation-range: 0% 100%)')) {
-    const initialHeight = 80;
-    const finalHeight = 60;
-    const scrollThreshold = 80;
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const percent = Math.min(1, scrollY / scrollThreshold);
-      const currentHeight = initialHeight - (initialHeight - finalHeight) * percent;
-      
-      header.style.height = `${currentHeight}px`;
-      if (scrollY > 10) {
-        header.style.boxShadow = `0 10px 30px rgba(0,0,0, ${0.1 * percent})`;
-      } else {
-        header.style.boxShadow = 'none';
-      }
-    });
-  }
-
-  // 7. IntersectionObserver for Skill Bars entrance animation
-  const skillProgressBars = document.querySelectorAll('.skill-progress-bar');
-  if (skillProgressBars.length > 0) {
-    const skillObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const bar = entry.target;
-          // Trigger transition by resetting width to style width
-          const targetWidth = bar.style.width;
-          bar.style.width = '0';
-          setTimeout(() => {
-            bar.style.transition = 'width 1.2s ease-out';
-            bar.style.width = targetWidth;
-          }, 100);
-          observer.unobserve(bar); // Run once
-        }
-      });
-    }, { threshold: 0.1 });
-
-    skillProgressBars.forEach(bar => skillObserver.observe(bar));
-  }
-
-  // 8. Scroll Reveal for generic element entrance
-  const revealElements = document.querySelectorAll('.teaser-card, .skills-card, .blog-post-card, .blog-feed-card, .timeline-item');
-  if (revealElements.length > 0) {
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          // Add inline style if transition is set in CSS
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
-
-    revealElements.forEach(el => {
-      // Set initial state
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(25px)';
-      el.style.transition = 'opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-      revealObserver.observe(el);
-    });
-  }
-
-  // 9. Contribution heatmap tooltip (delegated; native title is the no-JS fallback)
-  const contribGrid = document.querySelector('.contrib-grid');
-  if (contribGrid) {
-    let tooltip = null;
-
-    const showTooltip = (cell) => {
-      if (!cell.dataset.week) return;
-      cell.removeAttribute('title'); // suppress the native tooltip while ours is shown
-      if (!tooltip) {
-        tooltip = document.createElement('div');
-        tooltip.className = 'contrib-tooltip';
-        document.body.appendChild(tooltip);
-      }
-      const total = cell.dataset.total;
-      tooltip.innerHTML =
-        `<div class="contrib-tip-date">Week of ${cell.dataset.week} &middot; ${total} contribution${total === '1' ? '' : 's'}</div>` +
-        `<div class="contrib-tip-row"><span class="contrib-tip-dot gl"></span>GitLab ${cell.dataset.gl}</div>` +
-        `<div class="contrib-tip-row"><span class="contrib-tip-dot gh"></span>GitHub ${cell.dataset.gh}</div>`;
-      const rect = cell.getBoundingClientRect();
-      tooltip.style.left = rect.left + rect.width / 2 + 'px';
-      tooltip.style.top = rect.top + 'px';
-      tooltip.style.transform = 'translate(-50%, calc(-100% - 8px))';
-      // Force reflow so the fade-in transition plays from the hidden state.
-      tooltip.classList.remove('visible');
-      void tooltip.offsetWidth;
-      tooltip.classList.add('visible');
+    const update = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
     };
-
-    const hideTooltip = () => {
-      if (tooltip) tooltip.classList.remove('visible');
-    };
-
-    contribGrid.addEventListener('mouseover', (e) => {
-      const cell = e.target.closest('.contrib-day');
-      if (cell && contribGrid.contains(cell)) showTooltip(cell);
-    });
-    contribGrid.addEventListener('mouseout', (e) => {
-      const cell = e.target.closest('.contrib-day');
-      if (cell) hideTooltip();
-    });
+    window.addEventListener('scroll', update, { passive: true });
+    update();
   }
 
-  // 10. Mailto clipboard-copy fallback
-  const mailtoLinks = document.querySelectorAll('a[href^="mailto:"]');
-  if (mailtoLinks.length > 0) {
-    mailtoLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        const email = link.href.replace('mailto:', '');
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(email).then(() => {
-            showCopyToast(email);
-          }).catch(() => {
-            // Clipboard write failed silently — mailto still proceeds
-          });
-        }
-        // Default mailto: action is NOT prevented
-      });
-    });
-  }
-
-  function showCopyToast(email) {
-    // Remove any existing toast
-    const existing = document.querySelector('.copy-toast');
-    if (existing) existing.remove();
-
-    const toast = document.createElement('div');
-    toast.className = 'copy-toast';
-    toast.setAttribute('role', 'status');
-    toast.setAttribute('aria-live', 'polite');
-    toast.innerHTML = `<i data-lucide="check" aria-hidden="true"></i> <span>${email} copied to clipboard</span>`;
-    document.body.appendChild(toast);
-
-    // Initialize the Lucide icon inside the toast
-    if (typeof lucide !== 'undefined') lucide.createIcons();
-
-    // Trigger entrance animation
+  // 6. Copy the address when a mailto link is clicked (the mailto still opens)
+  let toastTimer;
+  const showToast = (text) => {
+    let toast = document.querySelector('.copy-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'copy-toast';
+      toast.setAttribute('role', 'status');
+      document.body.appendChild(toast);
+    }
+    toast.textContent = text;
     requestAnimationFrame(() => toast.classList.add('visible'));
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('visible'), 3000);
+  };
 
-    // Auto-dismiss after 3 seconds
-    setTimeout(() => {
-      toast.classList.remove('visible');
-      toast.addEventListener('transitionend', () => toast.remove(), { once: true });
-    }, 3000);
-  }
+  document.querySelectorAll('a[href^="mailto:"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const email = link.href.replace('mailto:', '');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(() => showToast(email + ' copied to clipboard')).catch(() => {});
+      }
+    });
+  });
 });

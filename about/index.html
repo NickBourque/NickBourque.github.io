@@ -1,144 +1,74 @@
 ---
 layout: page
 title: "About Nick Bourque"
-subtitle: "Software Engineer based in Halifax, Nova Scotia. Specializing in SaaS architecture, team leadership, and spatial computing platform scaling."
+heading: "Nine years on the trail."
+eyebrow: "About · Halifax, Nova Scotia"
 description: "Learn about Nick Bourque's career journey from SaaS development at Guild Software, through edtech engineering at Binogi Studios, to XR device management at ArborXR. Based in Halifax, Nova Scotia."
 url: /about/
 ---
 
 <div class="about-grid">
-  <div class="about-main-text">
-    <h2>My Philosophy</h2>
-    <p>
-      I believe that software should be built with clear intent, architectural resilience, and a deep focus on solving real-world business challenges. Throughout my career, I've enjoyed taking ownership of complex systems, optimizing them for high performance, and scaling them as user demand grows.
-    </p>
-    <p>
-      Whether designing public APIs that serve enterprise-scale traffic, building backends for globally localized educational content, or architecting device-management systems for enterprise XR deployments, I approach every engineering challenge with pragmatism, robust design patterns, and an open mind for learning.
-    </p>
-    
-    <div class="values-section">
-      <h3 class="values-heading">What I Value</h3>
-      <div class="values-grid">
-        <div class="value-card">
-          <h4>Pragmatic Scalability</h4>
-          <p>Building only what is needed, but planning architecture so that it can scale without a full rewrite when the load increases.</p>
-        </div>
-        <div class="value-card">
-          <h4>Engineering Ownership</h4>
-          <p>Caring about the code, the operations, the monitoring, and the ultimate user experience of the systems we deliver.</p>
-        </div>
-        <div class="value-card">
-          <h4>Continuous Mentorship</h4>
-          <p>Fostering team growth through collaborative design reviews, paired programming, and documentation-first development.</p>
-        </div>
-      </div>
-    </div>
+  <div class="about-intro">
+    <p class="lead">I like owning a system end to end: the schema, the API, the deploy, and the dashboard that tells you it's working. I build only what's needed, but leave room for the next ten times the load.</p>
+    <p>Right now that means enterprise AR/VR device management at ArborXR: public APIs other companies build on, audit trails people can trust, and getting content onto headsets quickly. Before that I built backends for localized edtech and B2B SaaS for professional associations.</p>
+    <p>I approach problems pragmatically, lean on proven design patterns, and stay open to learning something new.</p>
   </div>
 
-  <div class="about-sidebar">
-    <div class="sidebar-avatar-wrapper">
+  <aside class="about-side">
+    <div class="about-photo">
       <picture>
         <source srcset="{{ site.baseurl }}/assets/img/nick-bourque.webp" type="image/webp">
-        <img src="{{ site.baseurl }}/assets/img/nick-bourque.png" alt="Nick Bourque" class="sidebar-avatar">
+        <img src="{{ site.baseurl }}/assets/img/nick-bourque.png" alt="Nick Bourque" width="500" height="500">
       </picture>
     </div>
-    <div class="sidebar-details-card">
-      <h3>Quick Details</h3>
-      <ul class="details-list">
-        <li><strong>Location:</strong> Halifax, NS, Canada 🇨🇦</li>
-        <li><strong>Education:</strong> NSCC — Data Application Development</li>
-        <li><strong>Core Tech:</strong> PHP, SQL, TypeScript, Docker</li>
-        <li><strong>Focus Areas:</strong> SaaS, EdTech, XR & Device Management, Health</li>
-      </ul>
-      <div class="sidebar-actions">
-        <a href="mailto:{{ site.email }}" class="cta-btn small-btn full-width text-center" id="about-sidebar-contact">
-          <i data-lucide="mail"></i> Email Me
-        </a>
-      </div>
-    </div>
-  </div>
+    <dl class="facts panel">
+      <div><dt>Based in</dt><dd>Halifax, Nova Scotia</dd></div>
+      <div><dt>Now</dt><dd>Senior Software Engineer, ArborXR</dd></div>
+      <div><dt>Studied</dt><dd>NSCC, Data Application Development</dd></div>
+      <div><dt>Core</dt><dd>PHP, SQL, TypeScript, Docker</dd></div>
+      <div><dt>Focus</dt><dd>SaaS, EdTech, XR device management, Health</dd></div>
+    </dl>
+    <a href="mailto:{{ site.email }}" class="btn facts-cta" id="about-sidebar-contact">Email me</a>
+  </aside>
 </div>
 
-<!-- Career Timeline -->
-<section class="timeline-section-wrapper">
-  <div class="section-header">
-    <h2 class="section-title">Professional Journey</h2>
-    <p class="section-subtitle">A chronological look at my career milestones and achievements</p>
+<section class="section">
+  <div class="section-head">
+    <h2>What I value</h2>
   </div>
-
-  <div class="timeline-vertical">
-    <div class="timeline-line"></div>
-
-    <!-- Milestone 1 -->
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2022 - Present</div>
-      <div class="timeline-content">
-        <h3>Senior Software Engineer</h3>
-        <p class="timeline-company">ArborXR</p>
-        <p>
-          Engineering in the enterprise XR space, building and re-architecting the mobile device management (MDM) platform that lets businesses deploy and manage AR/VR hardware at scale.
-        </p>
-        <ul>
-          <li>Re-architected and rebuilt the core XR MDM backend and frontend, improving performance and scalability under growing user loads.</li>
-          <li>Primary architect and owner of the public REST API (v2/v3), designing enterprise-critical endpoints with user-scoped tokens and role-based access control (RBAC).</li>
-          <li>Built the enterprise-grade audit log system from the ground up for compliance traceability, and engineered a differential patching system that cut deployment bandwidth and sped up content delivery to devices.</li>
-          <li>Developed and maintained the authentication & SSO layer (OAuth2/SAML) with internal impersonation and session management, using PHP (Laravel), SQL, and MQTT for high-volume, real-time synchronization.</li>
-        </ul>
-      </div>
+  <div class="values">
+    <div class="value panel">
+      <h3>Scale when it's needed</h3>
+      <p>Build only what's needed now, with an architecture that can grow without a full rewrite.</p>
     </div>
-
-    <!-- Milestone 2 -->
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2020 - 2022</div>
-      <div class="timeline-content">
-        <h3>Senior Software Engineer</h3>
-        <p class="timeline-company">Binogi Studios</p>
-        <p>
-          Built and maintained scalable backend systems powering the production of translated and localized animated educational content.
-        </p>
-        <ul>
-          <li>Developed backend systems supporting localized educational content delivered across dozens of international markets.</li>
-          <li>Researched and experimented with new technologies to improve content-delivery efficiency.</li>
-          <li>Contributed to platform architecture and design discussions for core features.</li>
-        </ul>
-      </div>
+    <div class="value panel">
+      <h3>Own the whole thing</h3>
+      <p>The code, the operations, the monitoring, and how it feels to use.</p>
     </div>
-
-    <!-- Milestone 3 -->
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2017 - 2020</div>
-      <div class="timeline-content">
-        <h3>Lead Developer</h3>
-        <p class="timeline-company">Guild Software</p>
-        <p>
-          Joined shortly after graduation and led development of web-based platforms for professional colleges and associations.
-        </p>
-        <ul>
-          <li>Led development of membership, licensure, online payment, and government-reporting systems used by professional associations managing tens of thousands of members.</li>
-          <li>Executed large-scale legacy data migrations, preserving data integrity and minimizing downtime during client transitions.</li>
-          <li>Oversaw and mentored junior developers while managing project timelines and on-time delivery.</li>
-        </ul>
-      </div>
+    <div class="value panel">
+      <h3>Teach as you go</h3>
+      <p>Design reviews, pair programming and documentation-first development, so the team grows with the product.</p>
     </div>
-
-    <!-- Milestone 4 -->
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">2015 - 2017</div>
-      <div class="timeline-content">
-        <h3>Academic Foundation</h3>
-        <p class="timeline-company">Nova Scotia Community College (NSCC)</p>
-        <p>
-          Completed Data Application Development with a concentration in data-solutions development and object-oriented programming, plus training in business and data analysis, mobile development, and technical documentation.
-        </p>
-        <ul>
-          <li>Received the Data Application Programming Award from the NSCC IT Campus faculty, recognizing attitude, aptitude, and accomplishment.</li>
-        </ul>
-      </div>
-    </div>
-
   </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <h2>The trail so far</h2>
+    <span class="mono">newest first</span>
+  </div>
+  <ol class="trail">
+    {% for job in site.data.career %}
+    <li class="stop">
+      <span class="mono">{{ job.years }}</span>
+      <h3>{{ job.title }}</h3>
+      <span class="stop-org">{{ job.org }}</span>
+      {% if job.summary != "" %}<p>{{ job.summary }}</p>{% endif %}
+      <ul>
+        {% for point in job.points %}<li>{{ point }}</li>{% endfor %}
+      </ul>
+    </li>
+    {% endfor %}
+  </ol>
+  <p class="trail-start">Trailhead: Halifax, 2015</p>
 </section>

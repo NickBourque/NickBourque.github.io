@@ -1,0 +1,53 @@
+// Fundy Tide palette. Light values on :root, dark values for the OS
+// preference (unless the visitor chose light) and for an explicit dark choice.
+// Theme choice is stored as data-theme on <html> by the inline head script.
+//
+// bg = sea fog, ink = deep water, line = contour lines and rules,
+// buoy = accent fill (never used as text on light), tide = links and trail,
+// shoal = soft secondary.
+
+:root {
+  --bg: #EBF1F5;
+  --surface: #F7FAFC;
+  --ink: #10263A;
+  --muted: #485E72;
+  --line: #A9BED0;
+  --buoy: #E89B2E;
+  --on-buoy: #10263A;
+  --tide: #1F5C8B;
+  --on-tide: #EBF1F5;
+  --shoal: #8FB8C9;
+
+  --font-display: 'Darker Grotesque', 'Arial Narrow', system-ui, sans-serif;
+  --font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Red Hat Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+
+  --max: 1120px;
+  --narrow: 720px;
+  --pad: clamp(18px, 5vw, 48px);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --header-h: 68px;
+  --rule: 1.5px;
+
+  color-scheme: light;
+}
+
+@mixin dark-tokens {
+  --bg: #0D1824;
+  --surface: #142332;
+  --ink: #E6EEF4;
+  --muted: #95AABC;
+  --line: #2B4560;
+  --buoy: #F4B14F;
+  --on-buoy: #0D1824;
+  --tide: #6FAEE0;
+  --on-tide: #0D1824;
+  --shoal: #8FB8C9;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { @include dark-tokens; }
+}
+:root[data-theme="dark"] { @include dark-tokens; }

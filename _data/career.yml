@@ -1,0 +1,38 @@
+# Career history, newest first. Used by the home page "Waypoints" (first three,
+# `summary` only) and the About page trail (everything).
+
+- years: "2022 – now"
+  title: "Senior Software Engineer"
+  org: "ArborXR"
+  summary: "Re-architected the XR device-management platform companies use to run fleets of AR/VR headsets."
+  points:
+    - "Re-architected and rebuilt the core XR MDM backend and frontend, improving performance and scalability under growing load."
+    - "Primary architect and owner of the public REST API (v2/v3), with user-scoped tokens and role-based access control."
+    - "Built the audit log system for compliance traceability, and a differential patching system that cut deployment bandwidth and sped up content delivery to devices."
+    - "Maintains the OAuth2/SAML sign-in layer with impersonation and session management, using Laravel, SQL and MQTT for high-volume real-time sync."
+
+- years: "2020 – 2022"
+  title: "Senior Software Engineer"
+  org: "Binogi Studios"
+  summary: "Backend systems behind translated, localized animated lessons shipped to dozens of international markets."
+  points:
+    - "Built backend systems for localized educational content delivered across dozens of international markets."
+    - "Researched and tested new technologies to make content delivery more efficient."
+    - "Contributed to platform architecture and design discussions for core features."
+
+- years: "2017 – 2020"
+  title: "Lead Developer"
+  org: "Guild Software"
+  summary: "Led a B2B SaaS platform for professional associations, serving tens of thousands of members."
+  points:
+    - "Led membership, licensure, online payment and government-reporting systems for associations with tens of thousands of members."
+    - "Ran large legacy data migrations, preserving data integrity with minimal downtime."
+    - "Mentored junior developers and managed project timelines and delivery."
+
+- years: "2015 – 2017"
+  title: "Data Application Development"
+  org: "Nova Scotia Community College"
+  summary: ""
+  points:
+    - "Concentration in data-solutions development and object-oriented programming, plus business and data analysis, mobile development and technical writing."
+    - "Received the Data Application Programming Award from the NSCC IT Campus faculty for attitude, aptitude and accomplishment."
