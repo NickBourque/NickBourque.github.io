@@ -27,7 +27,6 @@ sass:
 # Remove these entries (and re-enable the commented nav/home blocks in
 # _layouts/default.html and index.html) to bring them back.
 exclude:
-  - portfolio
   - blog
   - _posts
   # Jekyll's default excludes (must be re-listed since a custom `exclude` replaces them)

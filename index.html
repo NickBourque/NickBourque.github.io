@@ -15,8 +15,8 @@ url: /
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a href="mailto:{{ site.email }}" class="btn btn-line" id="hero-cta-email">Email me</a>
-        {% comment %} Portfolio temporarily disabled — see _config.yml exclude list.
-        <a href="{{ site.baseurl }}/portfolio/" class="btn btn-line" id="hero-cta-portfolio">See projects</a>
+        {% comment %} Projects block not shown yet — see _config.yml exclude list.
+        <a href="{{ site.baseurl }}/projects/" class="btn btn-line" id="hero-cta-portfolio">See projects</a>
         {% endcomment %}
       </div>
     </div>
@@ -81,12 +81,12 @@ url: /
   </div>
 </section>
 
-{% comment %} Portfolio temporarily disabled — see _config.yml exclude list.
+{% comment %} Projects block not shown yet — see _config.yml exclude list.
 <section class="section">
   <div class="wrap">
     <div class="section-head">
       <h2>Projects</h2>
-      <a href="{{ site.baseurl }}/portfolio/" id="featured-projects-view-all">All projects →</a>
+      <a href="{{ site.baseurl }}/projects/" id="featured-projects-view-all">All projects →</a>
     </div>
     <div class="projects">
       {% assign featured_projects = site.data.projects | where: "featured", true %}

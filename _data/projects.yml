@@ -1,39 +1,26 @@
-- title: "AetherXR Manager"
-  category: "XR"
-  role: "Lead Architect / Developer"
-  tech_stack: ["C++", "WebRTC", "Node.js", "WebGL", "Docker"]
-  description: "An enterprise-grade platform enabling businesses to manage thousands of AR/VR headsets, provision profiles, deploy immersive content remotely, and monitor device telemetry in real-time."
-  icon: "device-vr"
-  github_url: "https://github.com/NickBourque/aetherxr-manager"
-  demo_url: "https://github.com/NickBourque/aetherxr-manager"
-  featured: true
+# Projects shown on /projects/. Newest or most important first.
+# description is Markdown; links[0] is the main button.
 
-- title: "EduCanvas Engine"
-  category: "EdTech"
-  role: "Engineering Lead"
-  tech_stack: ["JavaScript", "PHP", "FFmpeg", "AWS S3", "Redis"]
-  description: "A high-throughput rendering and delivery pipeline designed for educational animation content. Streamlines assets from creation to instant cross-platform CDN distribution, serving millions of learners."
-  icon: "movie"
-  github_url: "https://github.com/NickBourque/educanvas-engine"
-  demo_url: "https://github.com/NickBourque/educanvas-engine"
-  featured: true
-
-- title: "ApexSaaS Analytics"
-  category: "SaaS"
-  role: "Lead Engineer"
-  tech_stack: ["PHP (Laravel)", "MySQL", "Vue.js", "REST APIs"]
-  description: "Designed and scaled a B2B SaaS platform from absolute zero to 50k+ active users. Managed database optimizations, modular code design, and secure payment integrations."
-  icon: "chart-bar"
-  github_url: "https://github.com/NickBourque/apexsaas"
-  demo_url: "https://github.com/NickBourque/apexsaas"
-  featured: true
-
-- title: "Chronos Tasker"
-  category: "OpenSource"
+- title: "Poopy Goose"
+  kind: "Video game"
+  status: "In development"
   role: "Creator"
-  tech_stack: ["TypeScript", "CSS", "HTML5", "LocalStorage"]
-  description: "A sleek, keyboard-centric productivity app utilizing glassmorphic layout principles, offline synchronization, and customizable pomodoro triggers."
-  icon: "clock"
-  github_url: "https://github.com/NickBourque/chronos-tasker"
-  demo_url: "https://github.com/NickBourque/chronos-tasker"
-  featured: false
+  summary: "A cozy-chaos game about a very cute paper goose with a very bad habit."
+  description: |
+    Poopy Goose is the game I'm building under my indie label, Poopy Goose Studio. You play a sweet
+    goose with no manners, waddling through a little world made of paper: swipe snacks, honk at the
+    worst possible moment, and turn everyone's tidy plans into feathery mayhem. He means well. Mostly.
+
+    Everything in it is a flat paper cut-out with a thick ink outline and a white sticker border,
+    standing in a small 3D diorama, so characters turn like sheets of card rather than 3D models.
+    The game is built in Unity, and the studio site runs the same paper world in the browser with three.js.
+  tech: ["Unity", "C#", "three.js", "Illustration"]
+  image: "/assets/img/projects/poopy-goose.jpg"
+  image_alt: "The Poopy Goose Studio logo beside the goose, a white paper cut-out goose with an orange beak, shouting HONK!"
+  note: "Platforms and release date: to be honked."
+  links:
+    - label: "Visit poopygoose.studio"
+      url: "https://poopygoose.studio"
+    - label: "Read the devlog"
+      url: "https://poopygoose.studio/devlog/"
+  featured: true

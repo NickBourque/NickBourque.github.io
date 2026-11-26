@@ -1,0 +1,39 @@
+---
+layout: page
+title: "Projects"
+heading: "Projects"
+eyebrow: "Projects"
+subtitle: "Things I'm building outside the day job."
+description: "Projects by Nick Bourque, including Poopy Goose, a cozy-chaos video game in development."
+url: /projects/
+---
+
+<div class="project-list">
+  {% for project in site.data.projects %}
+  <article class="project-feature panel" id="project-{{ project.title | slugify }}">
+    {% if project.image %}
+    <a class="project-shot" href="{{ project.links[0].url }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+      <img src="{{ site.baseurl }}{{ project.image }}" alt="" width="1200" height="630" loading="lazy">
+    </a>
+    {% endif %}
+    <div class="project-body">
+      <p class="mono project-meta">
+        <span class="pin" aria-hidden="true"></span>
+        {{ project.kind }}{% if project.status %} · <span class="project-status">{{ project.status }}</span>{% endif %}{% if project.role %} · {{ project.role }}{% endif %}
+      </p>
+      <h2>{{ project.title }}</h2>
+      <p class="project-summary">{{ project.summary }}</p>
+      <div class="project-desc">{{ project.description | markdownify }}</div>
+      {% if project.tech %}<ul class="chips" aria-label="Built with">{% for tech in project.tech %}<li class="chip">{{ tech }}</li>{% endfor %}</ul>{% endif %}
+      {% if project.links %}
+      <div class="project-actions">
+        {% for link in project.links %}
+        <a href="{{ link.url }}" class="btn{% unless forloop.first %} btn-line{% endunless %}" target="_blank" rel="noopener">{{ link.label }} <span aria-hidden="true">↗</span></a>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% if project.note %}<p class="mono project-note">{{ project.note }}</p>{% endif %}
+    </div>
+  </article>
+  {% endfor %}
+</div>

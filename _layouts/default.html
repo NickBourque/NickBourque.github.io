@@ -204,8 +204,8 @@
       <nav class="desktop-nav" aria-label="Main">
         <a href="{{ site.baseurl }}/" class="nav-link {% if page.url == '/' %}active{% endif %}" {% if page.url == '/' %}aria-current="page"{% endif %} id="nav-home">Home</a>
         <a href="{{ site.baseurl }}/about/" class="nav-link {% if page.url contains '/about/' %}active{% endif %}" {% if page.url contains '/about/' %}aria-current="page"{% endif %} id="nav-about">About</a>
-        {% comment %} Portfolio and Blog temporarily disabled — see _config.yml exclude list.
-        <a href="{{ site.baseurl }}/portfolio/" class="nav-link {% if page.url contains '/portfolio/' %}active{% endif %}" id="nav-portfolio">Portfolio</a>
+        <a href="{{ site.baseurl }}/projects/" class="nav-link {% if page.url contains '/projects/' %}active{% endif %}" {% if page.url contains '/projects/' %}aria-current="page"{% endif %} id="nav-projects">Projects</a>
+        {% comment %} Blog temporarily disabled — see _config.yml exclude list.
         <a href="{{ site.baseurl }}/blog/" class="nav-link {% if page.url contains '/blog/' %}active{% endif %}" id="nav-blog">Blog</a>
         {% endcomment %}
         <a href="mailto:{{ site.email }}" class="btn btn-small" id="nav-contact-cta">Contact</a>
@@ -228,8 +228,8 @@
     <nav class="mobile-nav" aria-label="Mobile">
       <a href="{{ site.baseurl }}/" class="mobile-nav-link {% if page.url == '/' %}active{% endif %}" id="mobile-nav-home">Home</a>
       <a href="{{ site.baseurl }}/about/" class="mobile-nav-link {% if page.url contains '/about/' %}active{% endif %}" id="mobile-nav-about">About</a>
-      {% comment %} Portfolio and Blog temporarily disabled — see _config.yml exclude list.
-      <a href="{{ site.baseurl }}/portfolio/" class="mobile-nav-link {% if page.url contains '/portfolio/' %}active{% endif %}" id="mobile-nav-portfolio">Portfolio</a>
+      <a href="{{ site.baseurl }}/projects/" class="mobile-nav-link {% if page.url contains '/projects/' %}active{% endif %}" id="mobile-nav-projects">Projects</a>
+      {% comment %} Blog temporarily disabled — see _config.yml exclude list.
       <a href="{{ site.baseurl }}/blog/" class="mobile-nav-link {% if page.url contains '/blog/' %}active{% endif %}" id="mobile-nav-blog">Blog</a>
       {% endcomment %}
       <a href="mailto:{{ site.email }}" class="btn" id="mobile-nav-contact">Email me</a>
@@ -256,8 +256,8 @@
           <ul>
             <li><a href="{{ site.baseurl }}/" id="footer-link-home">Home</a></li>
             <li><a href="{{ site.baseurl }}/about/" id="footer-link-about">About</a></li>
-            {% comment %} Portfolio and Blog temporarily disabled — see _config.yml exclude list.
-            <li><a href="{{ site.baseurl }}/portfolio/" id="footer-link-portfolio">Portfolio</a></li>
+            <li><a href="{{ site.baseurl }}/projects/" id="footer-link-projects">Projects</a></li>
+            {% comment %} Blog temporarily disabled — see _config.yml exclude list.
             <li><a href="{{ site.baseurl }}/blog/" id="footer-link-blog">Blog</a></li>
             {% endcomment %}
           </ul>
